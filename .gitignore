@@ -6,13 +6,3 @@
 *.vsidx
 
 .vs/HLuxuryDriving-Server/FileContentIndex/read.lock
-
-*.v2
-
-.vs/HLuxuryDriving-Server/v17/.suo
-
-.vs/ProjectEvaluation/hluxurydriving-server.metadata.v5.2
-
-.vs/ProjectEvaluation/hluxurydriving-server.projects.v5.2
-
-.vs/HLuxuryDriving-Server/config/applicationhost.config
