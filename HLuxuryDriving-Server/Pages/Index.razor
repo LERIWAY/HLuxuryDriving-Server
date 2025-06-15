@@ -1,22 +1,209 @@
 ﻿@page "/"
-
 @inject IOptions<Models.SmtpSettings> SmtpOptions
+<PageTitle>H Luxury Driving</PageTitle>
+
+<!-- Navigation -->
+@* <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" style="background: black">
+    <div class="container">
+        <a class="navbar-brand" href="#page-top">
+            <img src="img/h-luxury-driving-logo.svg" alt="Logo H Luxury Driving" class="logo-img" />
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive">
+            Menu <i class="fas fa-bars ms-1"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                <li class="nav-item"><a class="nav-link" href="#lots">Nos Atouts</a></li>
+                <li class="nav-item"><a class="nav-link" href="#portfolio">Services</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contact">Réservation</a></li>
+            </ul>
+        </div>
+    </div>
+</nav> *@
+
+<div class="scroll-container">
+    <!-- Masthead avec image de fond -->
+    <header id="masthead" class="masthead" style="background-image: url('img/h-luxury-car.jpg'); background-size: cover; background-position: center; height: 100vh; color: white;">
+        <div class="container h-100 d-flex align-items-center justify-content-center text-center">
+            <div>
+                <h1 class="masthead-heading text-uppercase">Voyagez avec élégance et sérénité</h1>
+                <p class="masthead-subheading">
+                    Découvrez H DRIVING LUXURY, votre partenaire de transport privé alliant confort, économie,
+                    sécurité et flexibilité. Profitez d'un service de chauffeur personnalisé pour tous vos déplacements sur Strasbourg et sa région.
+                </p>
+                <button class="btn btn-primary btn-xl text-uppercase mt-3" @onclick="@(() => ScrollToSection("contact"))">Je réserve mon trajet</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Atouts -->
+    <section class="page-section" id="lots" style="padding-top: 80px;">
+
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-heading text-uppercase" style="font-size: 2.5rem; font-weight: 700; letter-spacing: 1px;">
+                    Pourquoi nous sortons du lot
+                </h2>
+                <div style="width: 60px; height: 4px; background-color: #FFD700; margin: 20px auto; border-radius: 2px;"></div>
+            </div>
+
+            <div class="row text-center">
+                <div class="col-md-4">
+                    <div class="icon-circle mb-4">
+                        <i class="fas fa-car-side fa-3x"></i>
+                    </div>
+                    <h4 class="my-3">Confort et Discrétion</h4>
+                    <p class="text-muted">H DRIVING LUXURY vous garantit une expérience de voyage où le confort est roi. Nos véhicules sont sélectionnés pour leur luxe et leur commodité.</p>
+                </div>
+                <div class="col-md-4">
+                    <div class="icon-circle mb-4">
+                        <i class="fas fa-piggy-bank fa-3x"></i>
+                    </div>
+                    <h4 class="my-3">Économie et Efficacité</h4>
+                    <p class="text-muted">Nous combinons des tarifs compétitifs avec une gestion efficace pour vous offrir le meilleur rapport qualité-prix.</p>
+                </div>
+                <div class="col-md-4">
+                    <div class="icon-circle mb-4">
+                        <i class="fas fa-shield-alt fa-3x"></i>
+                    </div>
+                    <h4 class="my-3">Sécurité et Flexibilité</h4>
+                    <p class="text-muted">Votre sécurité est notre priorité. Nos chauffeurs professionnels sont formés pour garantir un voyage sécurisé et adapté à vos besoins.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
 
-<h3>Envoyer un email</h3>
+    <!-- Services -->
+    <section class="page-section bg-light" id="portfolio" style="padding-top: 80px; margin-top: -70px;">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-heading text-uppercase" style="font-size: 2.5rem; font-weight: 700; letter-spacing: 1px;">
+                    Services
+                </h2>
+                <div style="width: 60px; height: 4px; background-color: #FFD700; margin: 20px auto; border-radius: 2px;"></div>
+            </div>
 
-<input class="form-control mb-2" @bind="_destinataire" placeholder="Email du destinataire" />
-<textarea class="form-control mb-2" @bind="_message" placeholder="Message à envoyer"></textarea>
-<button class="btn btn-primary" @onclick="SendEmail">Envoyer</button>
+            <div class="row">
+                @foreach (var service in Services)
+                {
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" href="#">
+                                <div class="portfolio-hover"></div>
+                                <div class="portfolio-image-container" style="height:250px;overflow:hidden;">
+                                    <img src="@service.Image" style="width:100%;height:100%;object-fit:cover;" />
+                                </div>
+                            </a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading">@service.Title</div>
+                                <div class="portfolio-caption-subheading text-muted">@service.Description</div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </section>
 
-@if (!string.IsNullOrWhiteSpace(_status))
-{
-    <div class="alert alert-info">@_status</div>
-}
+    <!-- Contact -->
+    <section class="page-section" id="contact" style="padding-top: 100px; padding-bottom: 10%">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-heading text-uppercase" style="font-size: 2.5rem; font-weight: 700; letter-spacing: 1px;">
+                    Formulaire de réservation
+                </h2>
+                <div style="width: 60px; height: 4px; background-color: #FFD700; margin: 20px auto; border-radius: 2px;"></div>
+            </div>
+
+
+            <div>
+                <div class="row align-items-stretch mb-5">
+                    <div class="col-md-6">
+                        <input class="form-control mb-3" @bind="_nom" placeholder="Votre nom *" />
+                        <input class="form-control mb-3" @bind="_email" placeholder="Votre email *" type="email" />
+                        <input class="form-control mb-3" @bind="_telephone" placeholder="Votre numéro *" type="tel" />
+                        <input class="form-control mb-3" @bind="_depart" placeholder="Adresse de départ *" />
+                        <input class="form-control mb-3" @bind="_arrivee" placeholder="Adresse d'arrivée *" />
+                    </div>
+                    <div class="col-md-6">
+                        <textarea class="form-control h-100" @bind="_commentaire" placeholder="Commentaire *"></textarea>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <button class="btn btn-primary btn-xl text-uppercase" @onclick="SendEmail">Envoyer</button>
+                </div>
+
+                @if (!string.IsNullOrWhiteSpace(_status))
+                {
+                    <div class="alert alert-info mt-3">@_status</div>
+                }
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- Footer -->
+<footer class="footer py-4">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-4 text-lg-start">© H Luxury Driving 2025</div>
+            <div class="col-lg-4 my-3 my-lg-0">
+                <a class="btn btn-dark btn-social mx-2" href="#"><i class="fab fa-twitter"></i></a>
+                <a class="btn btn-dark btn-social mx-2" href="#"><i class="fab fa-facebook-f"></i></a>
+                <a class="btn btn-dark btn-social mx-2" href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            <div class="col-lg-4 text-lg-end">
+                <a class="link-dark text-decoration-none me-3" href="#">Mentions légales</a>
+                <a class="link-dark text-decoration-none" href="#">Conditions d’utilisation</a>
+            </div>
+        </div>
+    </div>
+</footer>
 
 @code {
-    private string? _destinataire;
-    private string? _message;
+    @inject IJSRuntime JS
+    private async Task ScrollToSection(string id)
+    {
+        await JS.InvokeVoidAsync("scrollToElement", id);
+    }
+
+
+    private List<ServiceItem> Services = new()
+    {
+        new ServiceItem
+        {
+            Title = "Transferts Standard, Gares & Aéroports",
+            Description = "Profitez d’un service de transfert aéroportuaire haut de gamme avec H DRIVING LUXURY. Nos chauffeurs professionnels vous assurent un trajet confortable et sans stress, que ce soit pour un départ ou une arrivée. Grâce à leur ponctualité et leur parfaite connaissance des itinéraires, vous arrivez toujours à l’heure. Nos véhicules de luxe sont équipés pour garantir votre confort et votre sécurité tout au long du trajet. Nous vous offrons également une flexibilité totale, y compris pour les modifications de dernière minute. Choisir notre service, c’est opter pour la tranquillité d’esprit et l’excellence du service.",
+            Image = "img/frankfurtAirport.jpg"
+        },
+        new ServiceItem
+        {
+            Title = "Service et Chauffeur à la Demande",
+            Description = "Avec H DRIVING LUXURY, bénéficiez d’un service de chauffeur privé à la demande, parfaitement adapté à vos horaires et à vos besoins. Idéal pour les rendez-vous d’affaires, les événements spéciaux ou vos déplacements en ville, ce service allie élégance, discrétion et professionnalisme. Nos chauffeurs expérimentés veillent à votre sécurité tout en vous offrant un service irréprochable. Installez-vous dans l’un de nos véhicules haut de gamme pour un trajet des plus agréables. Que ce soit pour quelques heures ou pour la journée entière, nous nous adaptons à votre emploi du temps avec souplesse et réactivité.",
+            Image = "img/serviceEtChauffeur.jpg"
+        },
+        new ServiceItem
+        {
+            Title = "Excursions et Visites Guidées",
+            Description = "Partez à la découverte des trésors locaux avec les excursions et visites guidées signées H DRIVING LUXURY. Touriste ou résident, laissez-vous conduire vers des lieux emblématiques dans un confort absolu. Nos chauffeurs, également guides expérimentés, élaborent des itinéraires sur mesure selon vos centres d’intérêt. Profitez de commentaires enrichissants et de la liberté de faire des pauses aux différents points d’intérêt. Nos véhicules spacieux et élégants rendent même les longs trajets agréables. Nous vous offrons une grande flexibilité pour personnaliser la durée et le parcours selon vos envies. Offrez-vous une expérience inoubliable, alliant découverte et raffinement.",
+            Image = "img/petiteFrance.jpg"
+        }
+    };
+
+    public class ServiceItem
+    {
+        public string Title { get; set; }
+        public string Description { get; set; }
+        public string Image { get; set; }
+    }
+
+    private string? _nom;
+    private string? _email;
+    private string? _telephone;
+    private string? _depart;
+    private string? _arrivee;
+    private string? _commentaire;
     private string? _status;
 
     private async Task SendEmail()
@@ -25,28 +212,42 @@
 
         try
         {
-            var smtp = new SmtpClient(smtpSettings.Host, smtpSettings.Port)
-                {
-                    EnableSsl = smtpSettings.EnableSsl,
-                    Credentials = new NetworkCredential(smtpSettings.Username, smtpSettings.Password)
-                };
-
-            if (!string.IsNullOrEmpty(_destinataire))
+            using var smtp = new SmtpClient(smtpSettings.Host, smtpSettings.Port)
             {
+                EnableSsl = smtpSettings.EnableSsl,
+                Credentials = new NetworkCredential(smtpSettings.Username, smtpSettings.Password)
+            };
 
-                var mail = new MailMessage(smtpSettings.Username, _destinataire)
-                    {
-                        Subject = "Test Gmail",
-                        Body = _message
-                    };
-                await smtp.SendMailAsync(mail);
-            }
+            var messageBody = $@"
+                Nouvelle réservation :
 
-            _status = "Email envoyé avec succès.";
+                Nom : {_nom}
+                Email : {_email}
+                Téléphone : {_telephone}
+                Adresse de départ : {_depart}
+                Adresse d'arrivée : {_arrivee}
+                Commentaire : {_commentaire}"
+            ;
+
+            var mail = new MailMessage(smtpSettings.Username, _email)
+            {
+                Subject = "Nouvelle demande de réservation",
+                Body = messageBody
+            };
+
+            await smtp.SendMailAsync(mail);
+
+            _status = "Votre réservation a bien été envoyée ! Merci.";
+            ClearForm();
         }
         catch (Exception ex)
         {
-            _status = $"Erreur : {ex.Message}";
+            _status = $"Erreur lors de l'envoi : {ex.Message}";
         }
+    }
+
+    private void ClearForm()
+    {
+        _nom = _email = _telephone = _depart = _arrivee = _commentaire = null;
     }
 }

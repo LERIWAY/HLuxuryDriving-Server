@@ -14,6 +14,7 @@
     <link href="HLuxuryDriving-Server.styles.css" rel="stylesheet" />
     <link rel="icon" type="image/png" href="favicon.png"/>
     <component type="typeof(HeadOutlet)" render-mode="ServerPrerendered" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
 </head>
 <body>
     <component type="typeof(App)" render-mode="ServerPrerendered" />
@@ -30,5 +31,27 @@
     </div>
 
     <script src="_framework/blazor.server.js"></script>
+
+    <script>
+        window.scrollToElement = (id) => {
+            const el = document.getElementById(id);
+            if (el) {
+                el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        };
+    </script>
+
+    <script>
+        window.addEventListener('scroll', function () {
+            const navbar = document.getElementById('mainNavbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('shrink');
+            } else {
+                navbar.classList.remove('shrink');
+            }
+        });
+    </script>
+
+
 </body>
 </html>
