@@ -3,25 +3,24 @@
 <PageTitle>HLuxuryDriving-Server</PageTitle>
 
 <div class="page">
-    @* <div class="sidebar">  
-        <NavMenu />  
-    </div> *@  
-
     <main>
-        @* <div class="top-row px-4">  
-            <a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a>  
-        </div> *@  
         <nav class="navbar" id="mainNavbar">
-            <img src="img/h-luxury-driving-logo.svg" alt="Logo" class="navbar-logo" />
-            <ul class="nav-links">
+            <div class="navbar-left">
+                <button class="menu-toggle" @onclick="ToggleMenu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+                <img src="img/h-luxury-driving-logo.svg" alt="Logo" class="navbar-logo" />
+            </div>
+
+            <ul class="nav-links @(isMenuOpen ? "open" : "")">
                 <li><button class="nav-button" @onclick="@(() => ScrollToSection("masthead"))">Accueil</button></li>
                 <li><button class="nav-button" @onclick="@(() => ScrollToSection("lots"))">Atouts</button></li>
                 <li><button class="nav-button" @onclick="@(() => ScrollToSection("portfolio"))">Services</button></li>
                 <li><button class="nav-button" @onclick="@(() => ScrollToSection("contact"))">Contact</button></li>
             </ul>
         </nav>
-
-
         <article class="content px-4">
             @Body
         </article>
@@ -31,8 +30,16 @@
 @code {
     @inject IJSRuntime JS
 
+    private bool isMenuOpen = false;
+
+    private void ToggleMenu()
+    {
+        isMenuOpen = !isMenuOpen;
+    }
+
     private async Task ScrollToSection(string id)
     {
         await JS.InvokeVoidAsync("scrollToElement", id);
+        isMenuOpen = false;
     }
 }

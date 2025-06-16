@@ -1,7 +1,11 @@
 ﻿@import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
 
+/* ===== Base ===== */
 html, body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
 }
 
 h1:focus {
@@ -14,12 +18,11 @@ a, .btn-link {
 
 .btn-primary {
     color: #fff;
-    background-color: #1b6ec2;
     border-color: #1861ac;
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
 .content {
@@ -38,6 +41,7 @@ a, .btn-link {
     color: red;
 }
 
+/* ===== Blazor error UI ===== */
 #blazor-error-ui {
     background: lightyellow;
     bottom: 0;
@@ -58,15 +62,16 @@ a, .btn-link {
     }
 
 .blazor-error-boundary {
-    background: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTYiIGhlaWdodD0iNDkiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIG92ZXJmbG93PSJoaWRkZW4iPjxkZWZzPjxjbGlwUGF0aCBpZD0iY2xpcDAiPjxyZWN0IHg9IjIzNSIgeT0iNTEiIHdpZHRoPSI1NiIgaGVpZ2h0PSI0OSIvPjwvY2xpcFBhdGg+PC9kZWZzPjxnIGNsaXAtcGF0aD0idXJsKCNjbGlwMCkiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0yMzUgLTUxKSI+PHBhdGggZD0iTTI2My41MDYgNTFDMjY0LjcxNyA1MSAyNjUuODEzIDUxLjQ4MzcgMjY2LjYwNiA1Mi4yNjU4TDI2Ny4wNTIgNTIuNzk4NyAyNjcuNTM5IDUzLjYyODMgMjkwLjE4NSA5Mi4xODMxIDI5MC41NDUgOTIuNzk1IDI5MC42NTYgOTIuOTk2QzI5MC44NzcgOTMuNTEzIDI5MSA5NC4wODE1IDI5MSA5NC42NzgyIDI5MSA5Ny4wNjUxIDI4OS4wMzggOTkgMjg2LjYxNyA5OUwyNDAuMzgzIDk5QzIzNy45NjMgOTkgMjM2IDk3LjA2NTEgMjM2IDk0LjY3ODIgMjM2IDk0LjM3OTkgMjM2LjAzMSA5NC4wODg2IDIzNi4wODkgOTMuODA3MkwyMzYuMzM4IDkzLjAxNjIgMjM2Ljg1OCA5Mi4xMzE0IDI1OS40NzMgNTMuNjI5NCAyNTkuOTYxIDUyLjc5ODUgMjYwLjQwNyA1Mi4yNjU4QzI2MS4yIDUxLjQ4MzcgMjYyLjI5NiA1MSAyNjMuNTA2IDUxWk0yNjMuNTg2IDY2LjAxODNDMjYwLjczNyA2Ni4wMTgzIDI1OS4zMTMgNjcuMTI0NSAyNTkuMzEzIDY5LjMzNyAyNTkuMzEzIDY5LjYxMDIgMjU5LjMzMiA2OS44NjA4IDI1OS4zNzEgNzAuMDg4N0wyNjEuNzk1IDg0LjAxNjEgMjY1LjM4IDg0LjAxNjEgMjY3LjgyMSA2OS43NDc1QzI2Ny44NiA2OS43MzA5IDI2Ny44NzkgNjkuNTg3NyAyNjcuODc5IDY5LjMxNzkgMjY3Ljg3OSA2Ny4xMTgyIDI2Ni40NDggNjYuMDE4MyAyNjMuNTg2IDY2LjAxODNaTTI2My41NzYgODYuMDU0N0MyNjEuMDQ5IDg2LjA1NDcgMjU5Ljc4NiA4Ny4zMDA1IDI1OS43ODYgODkuNzkyMSAyNTkuNzg2IDkyLjI4MzcgMjYxLjA0OSA5My41Mjk1IDI2My41NzYgOTMuNTI5NSAyNjYuMTE2IDkzLjUyOTUgMjY3LjM4NyA5Mi4yODM3IDI2Ny4zODcgODkuNzkyMSAyNjcuMzg3IDg3LjMwMDUgMjY2LjExNiA4Ni4wNTQ3IDI2My41NzYgODYuMDU0N1oiIGZpbGw9IiNGRkU1MDAiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPjwvZz48L3N2Zz4=) no-repeat 1rem/1.8rem, #b32121;
+    background: url('data:image/svg+xml;base64,...') no-repeat 1rem/1.8rem, #b32121;
     padding: 1rem 1rem 1rem 3.7rem;
     color: white;
 }
 
     .blazor-error-boundary::after {
-        content: "An error has occurred."
+        content: "An error has occurred.";
     }
 
+/* ===== Masthead ===== */
 .masthead h1 {
     font-size: 3rem;
     font-weight: bold;
@@ -78,66 +83,52 @@ a, .btn-link {
     text-shadow: 1px 1px 6px rgba(0,0,0,0.5);
 }
 
-html body .top-row[b-pg0mbkrefo],
-html body article[b-pg0mbkrefo] {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-    padding: 0 !important;
-    margin: 0 !important;
-}
-
-
-/* Style de base pour la navbar */
+/* ===== Navbar ===== */
 .navbar {
-    background-color: black;
-    color: white;
-    display: flex;
-    align-items: center; /* centre verticalement */
+    align-items: center;
     justify-content: space-between;
-    padding: 0.5rem 5rem;
+    padding: 0.5rem 0.5rem;
+    background-color: black;
     position: sticky;
     top: 0;
     z-index: 1000;
 }
 
-/* Logo */
-.navbar-logo {
-    height: 50px; /* taille initiale du logo */
-    transition: height 0.3s ease;
-}
-
-/* Liens */
-.nav-links {
-    list-style: none;
+.navbar-left {
     display: flex;
-    gap: 2rem;
-    margin: 0;
-    padding: 0;
+    align-items: center;
+    gap: 1rem;
+    flex-shrink: 0;
 }
 
-    .nav-links li a {
-        color: white;
-        text-decoration: none;
-        font-size: 1.2rem;
-        transition: color 0.3s;
-    }
-
-        .nav-links li a:hover {
-            color: #aaa;
-        }
-
-/* Réduction au scroll */
-.shrink .navbar-logo {
-    height: 40px;
+.navbar-logo {
+    height: 32px;
+    width: auto;
+    object-fit: contain;
+    transition: height 0.3s ease;
 }
 
 .shrink .navbar {
     padding: 0.3rem 1rem;
 }
 
-html {
-    scroll-behavior: smooth;
+.shrink .navbar-logo {
+    height: 40px;
 }
+
+/* ===== Nav Links ===== */
+.nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+}
+
+    .nav-links li {
+        display: inline-block;
+    }
 
 .nav-button {
     background: none;
@@ -146,6 +137,7 @@ html {
     font: inherit;
     color: white;
     cursor: pointer;
+    font-size: 1rem;
     position: relative;
     transition: color 0.3s ease;
     outline: none;
@@ -158,7 +150,7 @@ html {
         bottom: 0;
         height: 3px;
         width: 0;
-        background: #fff633; 
+        background: #fff633;
         transition: width 0.3s ease;
         border-radius: 2px;
     }
@@ -173,21 +165,70 @@ html {
             width: 100%;
         }
 
-/* Donne un espace au-dessus des ancres pour qu’elles ne soient pas masquées par la navbar */
-.snap-section {
-    scroll-margin-top: 80px; /* adapte selon la hauteur de ta navbar */
+/* ===== Hamburger Menu ===== */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    background: none;
+    border: none;
 }
 
+    .menu-toggle .bar {
+        width: 25px;
+        height: 3px;
+        background-color: white;
+        margin: 4px 0;
+    }
+
+/* ===== Responsive Navbar ===== */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        left: 10px; /* 👈 Affiche à gauche */
+        background-color: white;
+        padding: 1rem;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+        .nav-links.open {
+            display: flex;
+        }
+
+        .nav-links li {
+            margin: 0.5rem 0;
+        }
+
+    .nav-button {
+        color: black;
+    }
+
+    .navbar {
+        flex-direction: row-reverse;
+    }
+}
+
+/* ===== Sections Scroll Offset ===== */
+.snap-section,
 #contact {
-    scroll-margin-top: 100px; /* adapte selon la hauteur de ta navbar */
+    scroll-margin-top: 100px;
 }
 
+/* ===== Icons Circle Style ===== */
 .icon-circle {
     width: 100px;
     height: 100px;
     margin: 0 auto;
-    background-color: black; /* Cercle noir */
-    color: white; /* Icône blanche */
+    background-color: black;
+    color: white;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -197,10 +238,67 @@ html {
 }
 
     .icon-circle i {
-        color: white !important; /* Force l'icône en blanc */
+        color: white !important;
     }
 
     .icon-circle:hover {
         transform: scale(1.1);
         background-color: #222;
     }
+
+/* ===== Misc. Bootstrap Overwrites ===== */
+.bg-light {
+    background-color: white !important;
+}
+
+html body .top-row[b-pg0mbkrefo],
+html body article[b-pg0mbkrefo] {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* ===== Responsive Section Tweaks ===== */
+@media (max-width: 768px) {
+    .masthead h1 {
+        font-size: 1.8rem;
+        padding: 0 1rem;
+    }
+
+    .masthead-subheading {
+        font-size: 1rem;
+        padding: 0 1rem;
+    }
+
+    .portfolio-caption-subheading {
+        font-size: 0.9rem;
+        text-align: center;
+        padding: 0 10px;
+    }
+
+    #lots .col-md-4 {
+        margin-bottom: 2rem;
+    }
+
+    .row.text-center > div {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    .form-control {
+        font-size: 1rem;
+    }
+
+    .btn-xl {
+        font-size: 1rem;
+        padding: 0.75rem 1.5rem;
+    }
+
+    .footer .col-lg-4 {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    html {
+        overflow-x: hidden;
+    }
+}

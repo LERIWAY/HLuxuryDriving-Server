@@ -2,25 +2,6 @@
 @inject IOptions<Models.SmtpSettings> SmtpOptions
 <PageTitle>H Luxury Driving</PageTitle>
 
-<!-- Navigation -->
-@* <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" style="background: black">
-    <div class="container">
-        <a class="navbar-brand" href="#page-top">
-            <img src="img/h-luxury-driving-logo.svg" alt="Logo H Luxury Driving" class="logo-img" />
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive">
-            Menu <i class="fas fa-bars ms-1"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
-                <li class="nav-item"><a class="nav-link" href="#lots">Nos Atouts</a></li>
-                <li class="nav-item"><a class="nav-link" href="#portfolio">Services</a></li>
-                <li class="nav-item"><a class="nav-link" href="#contact">Réservation</a></li>
-            </ul>
-        </div>
-    </div>
-</nav> *@
-
 <div class="scroll-container">
     <!-- Masthead avec image de fond -->
     <header id="masthead" class="masthead" style="background-image: url('img/h-luxury-car.jpg'); background-size: cover; background-position: center; height: 100vh; color: white;">
@@ -38,7 +19,6 @@
 
     <!-- Atouts -->
     <section class="page-section" id="lots" style="padding-top: 80px;">
-
         <div class="container">
             <div class="text-center mb-5">
                 <h2 class="section-heading text-uppercase" style="font-size: 2.5rem; font-weight: 700; letter-spacing: 1px;">
@@ -48,21 +28,21 @@
             </div>
 
             <div class="row text-center">
-                <div class="col-md-4">
+                <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
                     <div class="icon-circle mb-4">
                         <i class="fas fa-car-side fa-3x"></i>
                     </div>
                     <h4 class="my-3">Confort et Discrétion</h4>
                     <p class="text-muted">H DRIVING LUXURY vous garantit une expérience de voyage où le confort est roi. Nos véhicules sont sélectionnés pour leur luxe et leur commodité.</p>
                 </div>
-                <div class="col-md-4">
+                <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
                     <div class="icon-circle mb-4">
                         <i class="fas fa-piggy-bank fa-3x"></i>
                     </div>
                     <h4 class="my-3">Économie et Efficacité</h4>
                     <p class="text-muted">Nous combinons des tarifs compétitifs avec une gestion efficace pour vous offrir le meilleur rapport qualité-prix.</p>
                 </div>
-                <div class="col-md-4">
+                <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
                     <div class="icon-circle mb-4">
                         <i class="fas fa-shield-alt fa-3x"></i>
                     </div>
@@ -92,11 +72,11 @@
                             <a class="portfolio-link" href="#">
                                 <div class="portfolio-hover"></div>
                                 <div class="portfolio-image-container" style="height:250px;overflow:hidden;">
-                                    <img src="@service.Image" style="width:100%;height:100%;object-fit:cover;" />
+                                    <img src="@service.Image" class="img-fluid" style="width:100%;height:100%;object-fit:cover;" />
                                 </div>
                             </a>
                             <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading">@service.Title</div>
+                                <div class="portfolio-caption-heading" style="padding: 10px; font-weight: bold; text-align:center;">@service.Title</div>
                                 <div class="portfolio-caption-subheading text-muted">@service.Description</div>
                             </div>
                         </div>
@@ -149,13 +129,13 @@
         <div class="row align-items-center">
             <div class="col-lg-4 text-lg-start">© H Luxury Driving 2025</div>
             <div class="col-lg-4 my-3 my-lg-0">
-                <a class="btn btn-dark btn-social mx-2" href="#"><i class="fab fa-twitter"></i></a>
+@*                 <a class="btn btn-dark btn-social mx-2" href="#"><i class="fab fa-twitter"></i></a>
                 <a class="btn btn-dark btn-social mx-2" href="#"><i class="fab fa-facebook-f"></i></a>
-                <a class="btn btn-dark btn-social mx-2" href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a class="btn btn-dark btn-social mx-2" href="#"><i class="fab fa-linkedin-in"></i></a> *@
             </div>
             <div class="col-lg-4 text-lg-end">
-                <a class="link-dark text-decoration-none me-3" href="#">Mentions légales</a>
-                <a class="link-dark text-decoration-none" href="#">Conditions d’utilisation</a>
+@*                 <a class="link-dark text-decoration-none me-3" href="#">Mentions légales</a>
+                <a class="link-dark text-decoration-none" href="#">Conditions d’utilisation</a> *@
             </div>
         </div>
     </div>
@@ -167,7 +147,6 @@
     {
         await JS.InvokeVoidAsync("scrollToElement", id);
     }
-
 
     private List<ServiceItem> Services = new()
     {
@@ -218,24 +197,79 @@
                 Credentials = new NetworkCredential(smtpSettings.Username, smtpSettings.Password)
             };
 
-            var messageBody = $@"
-                Nouvelle réservation :
+            var commentaireHtml = _commentaire?
+                .Replace("\r\n", "\n")
+                .Replace("\r", "\n")
+                .Replace("\n", "<br />");
 
-                Nom : {_nom}
-                Email : {_email}
-                Téléphone : {_telephone}
-                Adresse de départ : {_depart}
-                Adresse d'arrivée : {_arrivee}
-                Commentaire : {_commentaire}"
+            #region Mail to owner
+            var messageBodyToOwner = $@"
+                <p>Bonjour Hilyess,</p>
+
+                <p>Nouvelle demande de réservation :</p>
+
+                <div style='border: 1px solid #ccc; padding: 15px; border-radius: 6px; background-color: #f9f9f9;'>
+                    <strong>🙋🏻‍♂️ Nom :</strong> {_nom}<br>
+                    <strong>📧 Email :</strong> {_email}<br>
+                    <strong>📞 Téléphone :</strong> {_telephone}<br>
+                    <strong>📍 Adresse de départ :</strong> {_depart}<br>
+                    <strong>🚩 Adresse d'arrivée :</strong> {_arrivee}<br>
+                    <strong>🗒️ Commentaire :</strong><br>
+                        <div style='border-left: 4px solid #FFD700; background-color: #f9f9f9; padding: 10px; margin: 10px 0; font-style: italic;''>
+                            {commentaireHtml}
+                        </div><br>
+                </div>
+
+                <p>Cordialement,</p>
+
+                H DRIVING LUXURY"
             ;
 
-            var mail = new MailMessage(smtpSettings.Username, _email)
+            var mailToOwner = new MailMessage(smtpSettings.Username, smtpSettings.Username)
             {
-                Subject = "Nouvelle demande de réservation",
-                Body = messageBody
+                Subject = $@"Nouvelle demande de réservation de {_nom}",
+                IsBodyHtml = true,
+                Body = messageBodyToOwner
             };
+            await smtp.SendMailAsync(mailToOwner);
+            #endregion
+            
+            #region Mail to customer
+            // 2. Email envoyé à l'utilisateur
+            var messageBodyToCustomer = $@"
+                <p>Bonjour {_nom},</p>
 
-            await smtp.SendMailAsync(mail);
+                <p>Merci pour votre demande de réservation !</p>
+                
+                <div style='border: 1px solid #ccc; padding: 15px; border-radius: 6px; background-color: #f9f9f9;'>
+                    Voici les détails de votre réservation :<br><br>
+                    <strong>🙋🏻‍♂️ Nom :</strong> {_nom}<br>
+                    <strong>📧 Email :</strong> {_email}<br>
+                    <strong>📞 Téléphone :</strong> {_telephone}<br>
+                    <strong>📍 Adresse de départ :</strong> {_depart}<br>
+                    <strong>🚩 Adresse d'arrivée :</strong> {_arrivee}<br>
+                    <strong>🗒️ Commentaire :</strong><br>
+                        <div style='border-left: 4px solid #FFD700; background-color: #f9f9f9; padding: 10px; margin: 10px 0; font-style: italic;''>
+                            {commentaireHtml}
+                        </div><br>
+                </div>
+                
+                <p>Votre chauffeur vous contactera pour confirmer votre réservation.</p>
+
+                <p>Cordialement,</p>
+
+                H DRIVING LUXURY"
+            ;
+
+
+            var mailToCustomer = new MailMessage(smtpSettings.Username, _email)
+            {
+                Subject = "[H DRIVING LUXURY] Votre réservation a bien été envoyée !",
+                IsBodyHtml = true,
+                Body = messageBodyToCustomer
+            };
+            await smtp.SendMailAsync(mailToCustomer);
+            #endregion
 
             _status = "Votre réservation a bien été envoyée ! Merci.";
             ClearForm();
