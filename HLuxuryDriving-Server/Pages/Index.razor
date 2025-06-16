@@ -97,28 +97,51 @@
             </div>
 
 
-            <div>
+            @using System.ComponentModel.DataAnnotations
+            @inject IOptions<Models.SmtpSettings> SmtpOptions
+
+            <EditForm Model="@reservation" OnValidSubmit="SendEmail">
+                <DataAnnotationsValidator />
+                <ValidationSummary />
+
                 <div class="row align-items-stretch mb-5">
                     <div class="col-md-6">
-                        <input class="form-control mb-3" @bind="_nom" placeholder="Votre nom *" />
-                        <input class="form-control mb-3" @bind="_email" placeholder="Votre email *" type="email" />
-                        <input class="form-control mb-3" @bind="_telephone" placeholder="Votre numéro *" type="tel" />
-                        <input class="form-control mb-3" @bind="_depart" placeholder="Adresse de départ *" />
-                        <input class="form-control mb-3" @bind="_arrivee" placeholder="Adresse d'arrivée *" />
+                        <InputText class="form-control mb-3" @bind-Value="reservation.Prenom" placeholder="Votre prénom *" />
+                        <ValidationMessage For="@(() => reservation.Prenom)" />
+
+                        <InputText class="form-control mb-3" @bind-Value="reservation.Nom" placeholder="Votre nom *" />
+                        <ValidationMessage For="@(() => reservation.Nom)" />
+
+                        <InputText class="form-control mb-3" @bind-Value="reservation.Email" placeholder="Votre email *" type="email" />
+                        <ValidationMessage For="@(() => reservation.Email)" />
+
+                        <InputText class="form-control mb-3" @bind-Value="reservation.Telephone" placeholder="Votre numéro *" type="tel" />
+                        <ValidationMessage For="@(() => reservation.Telephone)" />
+
+                        <InputText class="form-control mb-3" @bind-Value="reservation.Depart" placeholder="Adresse de départ *" />
+                        <ValidationMessage For="@(() => reservation.Depart)" />
+
+                        <InputText class="form-control mb-3" @bind-Value="reservation.Arrivee" placeholder="Adresse d'arrivée *" />
+                        <ValidationMessage For="@(() => reservation.Arrivee)" />
+
+                        <InputDate class="form-control mb-3" @bind-Value="reservation.Date" placeholder="Date du trajet *" />
+                        <ValidationMessage For="@(() => reservation.Date)" />
                     </div>
                     <div class="col-md-6">
-                        <textarea class="form-control h-100" @bind="_commentaire" placeholder="Commentaire *"></textarea>
+                        <InputTextArea class="form-control h-100" @bind-Value="reservation.Commentaire" placeholder="Commentaire *" />
+                        <ValidationMessage For="@(() => reservation.Commentaire)" />
                     </div>
                 </div>
+
                 <div class="text-center">
-                    <button class="btn btn-primary btn-xl text-uppercase" @onclick="SendEmail">Envoyer</button>
+                    <button class="btn btn-primary btn-xl text-uppercase" type="submit">Envoyer</button>
                 </div>
 
-                @if (!string.IsNullOrWhiteSpace(_status))
+                @if (!string.IsNullOrEmpty(_status))
                 {
                     <div class="alert alert-info mt-3">@_status</div>
                 }
-            </div>
+            </EditForm>
         </div>
     </section>
 </div>
@@ -143,6 +166,7 @@
 
 @code {
     @inject IJSRuntime JS
+
     private async Task ScrollToSection(string id)
     {
         await JS.InvokeVoidAsync("scrollToElement", id);
@@ -177,13 +201,9 @@
         public string Image { get; set; }
     }
 
-    private string? _nom;
-    private string? _email;
-    private string? _telephone;
-    private string? _depart;
-    private string? _arrivee;
-    private string? _commentaire;
     private string? _status;
+
+    private ReservationModel reservation = new();
 
     private async Task SendEmail()
     {
@@ -197,7 +217,7 @@
                 Credentials = new NetworkCredential(smtpSettings.Username, smtpSettings.Password)
             };
 
-            var commentaireHtml = _commentaire?
+            var commentaireHtml = reservation.Commentaire?
                 .Replace("\r\n", "\n")
                 .Replace("\r", "\n")
                 .Replace("\n", "<br />");
@@ -209,11 +229,12 @@
                 <p>Nouvelle demande de réservation :</p>
 
                 <div style='border: 1px solid #ccc; padding: 15px; border-radius: 6px; background-color: #f9f9f9;'>
-                    <strong>🙋🏻‍♂️ Nom :</strong> {_nom}<br>
-                    <strong>📧 Email :</strong> {_email}<br>
-                    <strong>📞 Téléphone :</strong> {_telephone}<br>
-                    <strong>📍 Adresse de départ :</strong> {_depart}<br>
-                    <strong>🚩 Adresse d'arrivée :</strong> {_arrivee}<br>
+                    <strong>🙋🏻‍♂️ Prénom & Nom :</strong> {reservation.Prenom} {reservation.Nom?.ToUpper()}<br>
+                    <strong>📧 Email :</strong> {reservation.Email}<br>
+                    <strong>📞 Téléphone :</strong> {reservation.Telephone}<br>
+                    <strong>📍 Adresse de départ :</strong> {reservation.Depart}<br>
+                    <strong>🚩 Adresse d'arrivée :</strong> {reservation.Arrivee}<br>
+                    <strong>🗓️ Date du trajet :</strong> {reservation.Date}<br>
                     <strong>🗒️ Commentaire :</strong><br>
                         <div style='border-left: 4px solid #FFD700; background-color: #f9f9f9; padding: 10px; margin: 10px 0; font-style: italic;''>
                             {commentaireHtml}
@@ -227,7 +248,7 @@
 
             var mailToOwner = new MailMessage(smtpSettings.Username, smtpSettings.Username)
             {
-                Subject = $@"Nouvelle demande de réservation de {_nom}",
+                Subject = $@"Nouvelle demande de réservation de {reservation.Prenom} {reservation.Nom?.ToUpper()}",
                 IsBodyHtml = true,
                 Body = messageBodyToOwner
             };
@@ -237,17 +258,18 @@
             #region Mail to customer
             // 2. Email envoyé à l'utilisateur
             var messageBodyToCustomer = $@"
-                <p>Bonjour {_nom},</p>
+                <p>Bonjour {reservation.Prenom},</p>
 
                 <p>Merci pour votre demande de réservation !</p>
                 
                 <div style='border: 1px solid #ccc; padding: 15px; border-radius: 6px; background-color: #f9f9f9;'>
                     Voici les détails de votre réservation :<br><br>
-                    <strong>🙋🏻‍♂️ Nom :</strong> {_nom}<br>
-                    <strong>📧 Email :</strong> {_email}<br>
-                    <strong>📞 Téléphone :</strong> {_telephone}<br>
-                    <strong>📍 Adresse de départ :</strong> {_depart}<br>
-                    <strong>🚩 Adresse d'arrivée :</strong> {_arrivee}<br>
+                    <strong>🙋🏻‍♂️ Prénom & Nom :</strong> {reservation.Prenom} {reservation.Nom?.ToUpper()}<br>
+                    <strong>📧 Email :</strong> {reservation.Email}<br>
+                    <strong>📞 Téléphone :</strong> {reservation.Telephone}<br>
+                    <strong>📍 Adresse de départ :</strong> {reservation.Depart}<br>
+                    <strong>🚩 Adresse d'arrivée :</strong> {reservation.Arrivee}<br>
+                    <strong>🗓️ Date du trajet :</strong> {reservation.Date}<br>
                     <strong>🗒️ Commentaire :</strong><br>
                         <div style='border-left: 4px solid #FFD700; background-color: #f9f9f9; padding: 10px; margin: 10px 0; font-style: italic;''>
                             {commentaireHtml}
@@ -262,7 +284,7 @@
             ;
 
 
-            var mailToCustomer = new MailMessage(smtpSettings.Username, _email)
+            var mailToCustomer = new MailMessage(smtpSettings.Username, reservation.Email)
             {
                 Subject = "[H DRIVING LUXURY] Votre réservation a bien été envoyée !",
                 IsBodyHtml = true,
@@ -282,6 +304,7 @@
 
     private void ClearForm()
     {
-        _nom = _email = _telephone = _depart = _arrivee = _commentaire = null;
+        reservation.Prenom = reservation.Nom = reservation.Email = reservation.Telephone = reservation.Depart = reservation.Arrivee = reservation.Commentaire = null;
+        reservation.Date = DateTime.UtcNow;
     }
 }
