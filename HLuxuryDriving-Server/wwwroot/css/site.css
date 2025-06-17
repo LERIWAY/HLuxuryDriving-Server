@@ -8,6 +8,11 @@ html, body {
     padding: 0;
 }
 
+artk {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
 h1:focus {
     outline: none;
 }
