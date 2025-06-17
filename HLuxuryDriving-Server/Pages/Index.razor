@@ -87,7 +87,7 @@
     </section>
 
     <!-- Contact -->
-    <section class="page-section" id="contact" style="padding-top: 100px; padding-bottom: 10%">
+    <section class="page-section" id="contact" style="padding-top: 1rem; padding-bottom: 10%">
         <div class="container">
             <div class="text-center mb-5">
                 <h2 class="section-heading text-uppercase" style="font-size: 2.5rem; font-weight: 700; letter-spacing: 1px;">
@@ -243,7 +243,7 @@
 
                 <p>Cordialement,</p>
 
-                H DRIVING LUXURY"
+                H LUXURY DRIVING"
             ;
 
             var mailToOwner = new MailMessage(smtpSettings.Username, smtpSettings.Username)
@@ -280,13 +280,13 @@
 
                 <p>Cordialement,</p>
 
-                H DRIVING LUXURY"
+                H LUXURY DRIVING"
             ;
 
 
             var mailToCustomer = new MailMessage(smtpSettings.Username, reservation.Email)
             {
-                Subject = "[H DRIVING LUXURY] Votre réservation a bien été envoyée !",
+                Subject = "[H LUXURY DRIVING] Votre réservation a bien été envoyée !",
                 IsBodyHtml = true,
                 Body = messageBodyToCustomer
             };
