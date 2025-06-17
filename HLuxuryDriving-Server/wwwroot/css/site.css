@@ -8,10 +8,13 @@ html, body {
     padding: 0;
 }
 
-.artl {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
+@media (min-width: 641px) {
+    article.no-padding[b-nz22qfaczt] {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
 }
+
 
 h1:focus {
     outline: none;
