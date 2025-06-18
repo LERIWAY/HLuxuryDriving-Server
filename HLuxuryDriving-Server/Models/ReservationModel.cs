@@ -24,7 +24,11 @@ public class ReservationModel
 
     [Required(ErrorMessage = "La date du trajet est obligatoire")]
     [DataType(DataType.Date)]
-    public DateTime? Date { get; set; }
+    public DateOnly? Date { get; set; }
+
+    [Required(ErrorMessage = "L'heure du trajet est obligatoire")]
+    public string? Heure { get; set; }
+
 
     [Required(ErrorMessage = "Le commentaire est obligatoire")]
     public string? Commentaire { get; set; }

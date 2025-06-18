@@ -104,19 +104,27 @@
                 <DataAnnotationsValidator />
                 <ValidationSummary />
 
-                <div class="row align-items-stretch mb-5">
+                <div class="row mb-4">
+                    <!-- Colonne gauche : Informations personnelles -->
                     <div class="col-md-6">
-                        <InputText class="form-control mb-3" @bind-Value="reservation.Prenom" placeholder="Votre prénom *" />
+                        <h5 class="mb-3 text-primary">Informations de contact</h5>
+
+                        <InputText class="form-control mb-3" @bind-Value="reservation.Prenom" placeholder="Prénom *" />
                         <ValidationMessage For="@(() => reservation.Prenom)" />
 
-                        <InputText class="form-control mb-3" @bind-Value="reservation.Nom" placeholder="Votre nom *" />
+                        <InputText class="form-control mb-3" @bind-Value="reservation.Nom" placeholder="Nom *" />
                         <ValidationMessage For="@(() => reservation.Nom)" />
 
-                        <InputText class="form-control mb-3" @bind-Value="reservation.Email" placeholder="Votre email *" type="email" />
+                        <InputText class="form-control mb-3" @bind-Value="reservation.Email" placeholder="Email *" type="email" />
                         <ValidationMessage For="@(() => reservation.Email)" />
 
-                        <InputText class="form-control mb-3" @bind-Value="reservation.Telephone" placeholder="Votre numéro *" type="tel" />
+                        <InputText class="form-control mb-3" @bind-Value="reservation.Telephone" placeholder="Téléphone *" type="tel" />
                         <ValidationMessage For="@(() => reservation.Telephone)" />
+                    </div>
+
+                    <!-- Colonne droite : Détails de réservation -->
+                    <div class="col-md-6">
+                        <h5 class="mb-3 text-primary">Détails de la réservation</h5>
 
                         <InputText class="form-control mb-3" @bind-Value="reservation.Depart" placeholder="Adresse de départ *" />
                         <ValidationMessage For="@(() => reservation.Depart)" />
@@ -124,11 +132,20 @@
                         <InputText class="form-control mb-3" @bind-Value="reservation.Arrivee" placeholder="Adresse d'arrivée *" />
                         <ValidationMessage For="@(() => reservation.Arrivee)" />
 
-                        <InputDate class="form-control mb-3" @bind-Value="reservation.Date" placeholder="Date du trajet *" />
-                        <ValidationMessage For="@(() => reservation.Date)" />
-                    </div>
-                    <div class="col-md-6">
-                        <InputTextArea class="form-control h-100" @bind-Value="reservation.Commentaire" placeholder="Commentaire *" />
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">📅 Date de départ</label>
+                            <InputDate class="form-control" @bind-Value="reservation.Date" />
+                            <ValidationMessage For="@(() => reservation.Date)" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">🕒 Heure de départ</label>
+                            <InputText type="time" class="form-control"
+                                       @bind-Value="reservation.Heure" />
+                            <ValidationMessage For="@(() => reservation.Heure)" />
+                        </div>
+
+                        <InputTextArea class="form-control mb-3" @bind-Value="reservation.Commentaire" placeholder="Commentaire (optionnel)" rows="4" />
                         <ValidationMessage For="@(() => reservation.Commentaire)" />
                     </div>
                 </div>
@@ -142,6 +159,7 @@
                     <div class="alert alert-info mt-3">@_status</div>
                 }
             </EditForm>
+
         </div>
     </section>
 </div>
@@ -152,12 +170,12 @@
         <div class="row align-items-center">
             <div class="col-lg-4 text-lg-start">© H Luxury Driving 2025</div>
             <div class="col-lg-4 my-3 my-lg-0">
-@*                 <a class="btn btn-dark btn-social mx-2" href="#"><i class="fab fa-twitter"></i></a>
+                @*                 <a class="btn btn-dark btn-social mx-2" href="#"><i class="fab fa-twitter"></i></a>
                 <a class="btn btn-dark btn-social mx-2" href="#"><i class="fab fa-facebook-f"></i></a>
                 <a class="btn btn-dark btn-social mx-2" href="#"><i class="fab fa-linkedin-in"></i></a> *@
             </div>
             <div class="col-lg-4 text-lg-end">
-@*                 <a class="link-dark text-decoration-none me-3" href="#">Mentions légales</a>
+                @*                 <a class="link-dark text-decoration-none me-3" href="#">Mentions légales</a>
                 <a class="link-dark text-decoration-none" href="#">Conditions d’utilisation</a> *@
             </div>
         </div>
@@ -232,9 +250,11 @@
                     <strong>🙋🏻‍♂️ Prénom & Nom :</strong> {reservation.Prenom} {reservation.Nom?.ToUpper()}<br>
                     <strong>📧 Email :</strong> {reservation.Email}<br>
                     <strong>📞 Téléphone :</strong> {reservation.Telephone}<br>
+                    <hr>
                     <strong>📍 Adresse de départ :</strong> {reservation.Depart}<br>
                     <strong>🚩 Adresse d'arrivée :</strong> {reservation.Arrivee}<br>
                     <strong>🗓️ Date du trajet :</strong> {reservation.Date}<br>
+                    <strong>🕒 Heure de départ :</strong> {reservation.Heure?.Substring(0, 5)}<br>
                     <strong>🗒️ Commentaire :</strong><br>
                         <div style='border-left: 4px solid #FFD700; background-color: #f9f9f9; padding: 10px; margin: 10px 0; font-style: italic;''>
                             {commentaireHtml}
@@ -254,28 +274,30 @@
             };
             await smtp.SendMailAsync(mailToOwner);
             #endregion
-            
+
             #region Mail to customer
             // 2. Email envoyé à l'utilisateur
             var messageBodyToCustomer = $@"
                 <p>Bonjour {reservation.Prenom},</p>
 
                 <p>Merci pour votre demande de réservation !</p>
-                
+
                 <div style='border: 1px solid #ccc; padding: 15px; border-radius: 6px; background-color: #f9f9f9;'>
                     Voici les détails de votre réservation :<br><br>
                     <strong>🙋🏻‍♂️ Prénom & Nom :</strong> {reservation.Prenom} {reservation.Nom?.ToUpper()}<br>
                     <strong>📧 Email :</strong> {reservation.Email}<br>
                     <strong>📞 Téléphone :</strong> {reservation.Telephone}<br>
+                    <hr>
                     <strong>📍 Adresse de départ :</strong> {reservation.Depart}<br>
                     <strong>🚩 Adresse d'arrivée :</strong> {reservation.Arrivee}<br>
                     <strong>🗓️ Date du trajet :</strong> {reservation.Date}<br>
+                    <strong>🕒 Heure de départ :</strong> {reservation.Heure?.Substring(0, 5)}<br>
                     <strong>🗒️ Commentaire :</strong><br>
                         <div style='border-left: 4px solid #FFD700; background-color: #f9f9f9; padding: 10px; margin: 10px 0; font-style: italic;''>
                             {commentaireHtml}
                         </div><br>
                 </div>
-                
+
                 <p>Votre chauffeur vous contactera pour confirmer votre réservation.</p>
 
                 <p>Cordialement,</p>
@@ -302,9 +324,11 @@
         }
     }
 
-    private void ClearForm()
-    {
-        reservation.Prenom = reservation.Nom = reservation.Email = reservation.Telephone = reservation.Depart = reservation.Arrivee = reservation.Commentaire = null;
-        reservation.Date = DateTime.UtcNow;
+    @code {  
+        private void ClearForm()  
+        {  
+            reservation.Prenom = reservation.Nom = reservation.Email = reservation.Telephone = reservation.Depart = reservation.Arrivee = reservation.Commentaire = reservation.Heure = null;  
+            reservation.Date = DateOnly.FromDateTime(DateTime.Now);
+        }  
     }
 }
