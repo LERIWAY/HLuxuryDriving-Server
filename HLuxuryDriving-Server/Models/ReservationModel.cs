@@ -29,7 +29,5 @@ public class ReservationModel
     [Required(ErrorMessage = "L'heure du trajet est obligatoire")]
     public string? Heure { get; set; }
 
-
-    [Required(ErrorMessage = "Le commentaire est obligatoire")]
     public string? Commentaire { get; set; }
 }

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("HLuxuryDriving-Server")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d5a371eaba7b0b3159240b340681bb61e0c2eb4e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9bf44544b028e5f097697e4cc40d18112674fbaa")]
 [assembly: System.Reflection.AssemblyProductAttribute("HLuxuryDriving-Server")]
 [assembly: System.Reflection.AssemblyTitleAttribute("HLuxuryDriving-Server")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

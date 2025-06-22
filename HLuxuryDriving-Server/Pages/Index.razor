@@ -12,7 +12,7 @@
                     Découvrez H DRIVING LUXURY, votre partenaire de transport privé alliant confort, économie,
                     sécurité et flexibilité. Profitez d'un service de chauffeur personnalisé pour tous vos déplacements sur Strasbourg et sa région.
                 </p>
-                <button class="btn btn-primary btn-xl text-uppercase mt-3" @onclick="@(() => ScrollToSection("contact"))">Je réserve mon trajet</button>
+                <button class="btn btn-primary btn-xl text-uppercase mt-3" style="background-color=#FFD700; !important" @onclick="@(() => ScrollToSection("contact"))">Je réserve mon trajet</button>
             </div>
         </div>
     </header>
@@ -52,7 +52,6 @@
             </div>
         </div>
     </section>
-
 
     <!-- Services -->
     <section class="page-section bg-light" id="portfolio" style="padding-top: 80px; margin-top: -70px;">
@@ -100,53 +99,70 @@
             @using System.ComponentModel.DataAnnotations
             @inject IOptions<Models.SmtpSettings> SmtpOptions
 
-            <EditForm Model="@reservation" OnValidSubmit="SendEmail">
+            <EditForm EditContext="@editContext" OnValidSubmit="SendEmail">
                 <DataAnnotationsValidator />
-                <ValidationSummary />
+                @if (editContext.GetValidationMessages().Any())
+                {
+                    <div class="alert alert-danger border-2 rounded shadow-sm p-3 mb-4">
+                        <strong><i class="fas fa-exclamation-triangle me-2"></i>Veuillez corriger les erreurs suivantes :</strong>
+                        <ValidationSummary />
+                    </div>
+                }
 
                 <div class="row mb-4">
                     <!-- Colonne gauche : Informations personnelles -->
                     <div class="col-md-6">
-                        <h5 class="mb-3 text-primary">Informations de contact</h5>
+                        <div class="text-center mb-4">
+                            <h5 class="fw-bold px-4 py-2" style="color: #FFD700; border: 2px solid black; display: inline-block; border-radius: 6px;">
+                                Informations de contact
+                            </h5>
+                        </div>
+
+
 
                         <InputText class="form-control mb-3" @bind-Value="reservation.Prenom" placeholder="Prénom *" />
-                        <ValidationMessage For="@(() => reservation.Prenom)" />
+@*                         <ValidationMessage For="@(() => reservation.Prenom)" /> *@
 
                         <InputText class="form-control mb-3" @bind-Value="reservation.Nom" placeholder="Nom *" />
-                        <ValidationMessage For="@(() => reservation.Nom)" />
+@*                         <ValidationMessage For="@(() => reservation.Nom)" /> *@
 
                         <InputText class="form-control mb-3" @bind-Value="reservation.Email" placeholder="Email *" type="email" />
-                        <ValidationMessage For="@(() => reservation.Email)" />
+@*                         <ValidationMessage For="@(() => reservation.Email)" /> *@
 
                         <InputText class="form-control mb-3" @bind-Value="reservation.Telephone" placeholder="Téléphone *" type="tel" />
-                        <ValidationMessage For="@(() => reservation.Telephone)" />
+                        @* <ValidationMessage For="@(() => reservation.Telephone)" /> *@
                     </div>
 
                     <!-- Colonne droite : Détails de réservation -->
                     <div class="col-md-6">
-                        <h5 class="mb-3 text-primary">Détails de la réservation</h5>
+                        <div class="text-center mb-4">
+                            <h5 class="fw-bold px-4 py-2" style="color: #FFD700; border: 2px solid black; display: inline-block; border-radius: 6px;">
+                                Détails de réservation
+                            </h5>
+                        </div>
+
+
 
                         <InputText class="form-control mb-3" @bind-Value="reservation.Depart" placeholder="Adresse de départ *" />
-                        <ValidationMessage For="@(() => reservation.Depart)" />
+                        @* <ValidationMessage For="@(() => reservation.Depart)" /> *@
 
                         <InputText class="form-control mb-3" @bind-Value="reservation.Arrivee" placeholder="Adresse d'arrivée *" />
-                        <ValidationMessage For="@(() => reservation.Arrivee)" />
+                        @* <ValidationMessage For="@(() => reservation.Arrivee)" /> *@
 
                         <div class="mb-3">
                             <label class="form-label fw-bold">📅 Date de départ</label>
                             <InputDate class="form-control" @bind-Value="reservation.Date" />
-                            <ValidationMessage For="@(() => reservation.Date)" />
+                            @* <ValidationMessage For="@(() => reservation.Date)" /> *@
                         </div>
 
                         <div class="mb-3">
                             <label class="form-label fw-bold">🕒 Heure de départ</label>
                             <InputText type="time" class="form-control"
                                        @bind-Value="reservation.Heure" />
-                            <ValidationMessage For="@(() => reservation.Heure)" />
+                            @* <ValidationMessage For="@(() => reservation.Heure)" /> *@
                         </div>
 
                         <InputTextArea class="form-control mb-3" @bind-Value="reservation.Commentaire" placeholder="Commentaire (optionnel)" rows="4" />
-                        <ValidationMessage For="@(() => reservation.Commentaire)" />
                     </div>
                 </div>
 
@@ -244,7 +260,7 @@
             var messageBodyToOwner = $@"
                 <p>Bonjour Hilyess,</p>
 
-                <p>Nouvelle demande de réservation :</p>
+                <p>Vous avez une nouvelle demande de réservation :</p>
 
                 <div style='border: 1px solid #ccc; padding: 15px; border-radius: 6px; background-color: #f9f9f9;'>
                     <strong>🙋🏻‍♂️ Prénom & Nom :</strong> {reservation.Prenom} {reservation.Nom?.ToUpper()}<br>
@@ -324,11 +340,16 @@
         }
     }
 
-    @code {  
-        private void ClearForm()  
-        {  
-            reservation.Prenom = reservation.Nom = reservation.Email = reservation.Telephone = reservation.Depart = reservation.Arrivee = reservation.Commentaire = reservation.Heure = null;  
-            reservation.Date = DateOnly.FromDateTime(DateTime.Now);
-        }  
+    private void ClearForm()
+    {
+        reservation.Prenom = reservation.Nom = reservation.Email = reservation.Telephone = reservation.Depart = reservation.Arrivee = reservation.Commentaire = reservation.Heure = null;
+        reservation.Date = DateOnly.FromDateTime(DateTime.Now);
+    }
+
+    private EditContext editContext;
+
+    protected override void OnInitialized()
+    {
+        editContext = new EditContext(reservation);
     }
 }
