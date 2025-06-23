@@ -224,6 +224,10 @@ a, .btn-link {
         flex-direction: row-reverse;
         display: block;
     }
+
+    .masthead p {
+        font-size: 1rem !important;
+    }
 }
 
 /* ===== Sections Scroll Offset ===== */
@@ -379,8 +383,6 @@ html body article[b-pg0mbkrefo] {
     }
 }
 
-
-
 /* ===== WhatsApp Floating Button ===== */
 .whatsapp-wrapper {
     position: fixed;
@@ -416,3 +418,48 @@ html body article[b-pg0mbkrefo] {
     font-size: 12px;
     font-family: 'Segoe UI', sans-serif;
 }
+
+/* ===== Boutons personnalisés jaunes modernes ===== */
+.btn-reserve-yellow {
+    background: #FFD700;
+    color: black;
+    border: 2px solid #FFD700;
+    padding: 0.6rem 1.6rem;
+    border-radius: 40px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 1.1rem;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+    .btn-reserve-yellow:hover {
+        background: transparent;
+        color: #FFD700;
+        border: 2px solid #FFD700;
+        box-shadow: 0 0 12px rgba(255, 215, 0, 0.5);
+    }
+
+.btn-send-yellow {
+    background: #FFD700;
+    color: black;
+    border: 2px solid #FFD700;
+    padding: 0.6rem 1.6rem;
+    border-radius: 40px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 1.1rem;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+    .btn-send-yellow:hover {
+        background: transparent;
+        color: #FFD700;
+        border: 2px solid #FFD700;
+        box-shadow: 0 0 12px rgba(255, 215, 0, 0.5);
+    }

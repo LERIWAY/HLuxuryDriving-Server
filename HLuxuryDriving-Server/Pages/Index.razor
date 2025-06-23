@@ -12,7 +12,9 @@
                     Découvrez H DRIVING LUXURY, votre partenaire de transport privé alliant confort, économie,
                     sécurité et flexibilité. Profitez d'un service de chauffeur personnalisé pour tous vos déplacements sur Strasbourg et sa région.
                 </p>
-                <button class="btn btn-primary btn-xl text-uppercase mt-3" style="background-color=#FFD700; !important" @onclick="@(() => ScrollToSection("contact"))">Je réserve mon trajet</button>
+                <button class="btn-reserve-yellow mt-3 text-uppercase btn-xl" @onclick="@(() => ScrollToSection("contact"))">
+                    Je réserve mon trajet
+                </button>
             </div>
         </div>
     </header>
@@ -167,7 +169,9 @@
                 </div>
 
                 <div class="text-center">
-                    <button class="btn btn-primary btn-xl text-uppercase" type="submit">Envoyer</button>
+                    <button class="btn-send-yellow text-uppercase btn-xl" type="submit">
+                        Envoyer
+                    </button>
                 </div>
 
                 @if (!string.IsNullOrEmpty(_status))
@@ -262,8 +266,8 @@
 
                 <p>Cordialement,</p>
 
-                H LUXURY DRIVING"
-            ;
+                <p><strong>H LUXURY DRIVING</strong><br />
+                <a href='https://www.h-luxury-driving.com' target='_blank' style='color: #FFD700; text-decoration: none;'>www.h-luxury-driving.com</a></p>";
 
             var mailToOwner = new MailMessage(smtpSettings.Username, smtpSettings.Username)
             {
@@ -298,11 +302,12 @@
                 </div>
 
                 <p>Votre chauffeur vous contactera pour confirmer votre réservation.</p>
-                <p>En cas de besoin, vous pouvez nous contacter par téléphone ou via WhatsApp : +33 6 15 24 37 87 </a>.</p>
+                <p>En cas de besoin, vous pouvez nous contacter par téléphone ou via WhatsApp : +33 6 15 24 37 87.</p>
 
                 <p>Cordialement,</p>
 
-                H LUXURY DRIVING"
+                <p><strong>H LUXURY DRIVING</strong><br />
+                <a href='https://www.h-luxury-driving.com' target='_blank' style='color: #FFD700; text-decoration: none;'>www.h-luxury-driving.com</a></p>";
             ;
 
 
