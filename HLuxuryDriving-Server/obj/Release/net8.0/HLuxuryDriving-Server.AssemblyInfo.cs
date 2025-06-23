@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("HLuxuryDriving-Server")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+84436a427d80cfb2c2f13c24deab9bedf4b9358b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+06164d1fd6d323575b498dc703f02642d7e7a293")]
 [assembly: System.Reflection.AssemblyProductAttribute("HLuxuryDriving-Server")]
 [assembly: System.Reflection.AssemblyTitleAttribute("HLuxuryDriving-Server")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
