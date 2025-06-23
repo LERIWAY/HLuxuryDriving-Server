@@ -128,6 +128,11 @@ a, .btn-link {
     text-shadow: 1px 1px 6px rgba(0,0,0,0.5);
 }
 
+.masthead-heading,
+.masthead-subheading {
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.6);
+}
+
 /* ===== Navbar ===== */
 .navbar {
     align-items: center;
@@ -502,3 +507,57 @@ html body article[b-pg0mbkrefo] {
         border: 2px solid #FFD700;
         box-shadow: 0 0 12px rgba(255, 215, 0, 0.5);
     }
+
+
+/* ===== Video Background ===== */
+.video-background {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+    .video-background video {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: auto;
+        z-index: -1;
+        transform: translate(-50%, -50%);
+        object-fit: cover;
+    }
+
+    .video-background .content {
+        position: relative;
+        z-index: 1;
+        text-align: center;
+        color: white;
+        padding: 2rem;
+    }
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 0;
+}
+
+/* Fallback image quand la vidéo est masquée */
+@media (max-width: 768px) {
+    .video-background video {
+        display: none;
+    }
+
+    .video-background {
+        background-image: url('img/h-luxury-car.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+}

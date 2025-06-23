@@ -55,6 +55,15 @@
                 navbar.classList.remove('shrink');
             }
         });
+
+                const video = document.querySelector('video');
+        video.muted = true;
+        video.play().catch(() => {
+          // Si la lecture automatique est bloquée, on peut afficher l'image fallback ou un message
+          video.style.display = 'none';
+          document.querySelector('.video-overlay').style.display = 'block'; // ou afficher une image
+        });
+
     </script>
 </body>
 </html>

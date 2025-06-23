@@ -4,8 +4,18 @@
 
 <div class="scroll-container">
     <!-- Masthead avec image de fond -->
-    <header id="masthead" class="masthead" style="background-image: url('img/h-luxury-car.jpg'); background-size: cover; background-position: center; height: 100vh; color: white;">
-        <div tabindex="0" class="container h-100 d-flex align-items-center justify-content-center text-center">
+    <header id="masthead" class="masthead position-relative" style="height: 100vh; color: white; overflow: hidden;">
+        <video autoplay muted loop playsinline
+               poster="img/h-luxury-car.jpg"
+               class="w-100 h-100 position-absolute top-0 start-0"
+               style="object-fit: cover; z-index: -1;">
+            <source src="video/LuxuryTravelExperience.mp4" type="video/mp4" />
+        </video>
+
+        <!-- Overlay sombre -->
+        <div class="video-overlay"></div>
+
+        <div tabindex="0" style="z-index: 1; position: relative;" class="container h-100 d-flex align-items-center justify-content-center text-center">
             <div>
                 <h1 class="masthead-heading text-uppercase">Voyagez avec élégance et sérénité</h1>
                 <p class="masthead-subheading">
@@ -123,13 +133,13 @@
 
 
                         <InputText class="form-control mb-3" @bind-Value="reservation.Prenom" placeholder="Prénom *" />
-@*                         <ValidationMessage For="@(() => reservation.Prenom)" /> *@
+                        @*                         <ValidationMessage For="@(() => reservation.Prenom)" /> *@
 
                         <InputText class="form-control mb-3" @bind-Value="reservation.Nom" placeholder="Nom *" />
-@*                         <ValidationMessage For="@(() => reservation.Nom)" /> *@
+                        @*                         <ValidationMessage For="@(() => reservation.Nom)" /> *@
 
                         <InputText class="form-control mb-3" @bind-Value="reservation.Email" placeholder="Email *" type="email" />
-@*                         <ValidationMessage For="@(() => reservation.Email)" /> *@
+                        @*                         <ValidationMessage For="@(() => reservation.Email)" /> *@
 
                         <InputText class="form-control mb-3" @bind-Value="reservation.Telephone" placeholder="Téléphone *" type="tel" />
                         @* <ValidationMessage For="@(() => reservation.Telephone)" /> *@

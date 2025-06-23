@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "W2FkJuA3EWlkdS8GwRAPmJvUt7vdgk7or+PKjdRvhcw=",
+  "Hash": "esInxaxLUFcnpGiGRge1vBwGEjJnmB2ocuovcZbNEx8=",
   "Source": "HLuxuryDriving-Server",
   "BasePath": "_content/HLuxuryDriving-Server",
   "Mode": "Default",
@@ -433,6 +433,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/img/serviceEtChauffeur.jpg"
+    },
+    {
+      "Identity": "/mnt/c/Users/OkkesAmoca/Desktop/Projets/HLuxuryDriving-Server/HLuxuryDriving-Server/wwwroot/video/LuxuryTravelExperience.mp4",
+      "SourceId": "HLuxuryDriving-Server",
+      "SourceType": "Discovered",
+      "ContentRoot": "/mnt/c/Users/OkkesAmoca/Desktop/Projets/HLuxuryDriving-Server/HLuxuryDriving-Server/wwwroot/",
+      "BasePath": "_content/HLuxuryDriving-Server",
+      "RelativePath": "video/LuxuryTravelExperience.mp4",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/video/LuxuryTravelExperience.mp4"
     }
   ]
 }

@@ -85,6 +85,10 @@
       "PackagePath": "staticwebassets/img/serviceEtChauffeur.jpg"
     },
     {
+      "Id": "/mnt/c/Users/OkkesAmoca/Desktop/Projets/HLuxuryDriving-Server/HLuxuryDriving-Server/wwwroot/video/LuxuryTravelExperience.mp4",
+      "PackagePath": "staticwebassets/video/LuxuryTravelExperience.mp4"
+    },
+    {
       "Id": "obj/Release/net8.0/staticwebassets/msbuild.HLuxuryDriving-Server.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },
