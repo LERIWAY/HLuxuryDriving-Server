@@ -8,10 +8,23 @@ html, body {
     padding: 0;
 }
 
+/* Tout élément focusable sauf champs formulaire */
+*:focus:not(input):not(textarea):not(select) {
+    outline: none;
+    caret-color: transparent;
+}
+
+
 @media (min-width: 641px) {
     article.no-padding[b-nz22qfaczt] {
         padding-left: 0 !important;
         padding-right: 0 !important;
+    }
+}
+
+@media (max-width: 768px) {
+    h2 {
+        font-size: 1.75rem !important;
     }
 }
 
@@ -50,6 +63,25 @@ a, .btn-link {
     color: red;
 }
 
+/* Séparation entre Atouts (#lots) et Services (#portfolio) */
+#lots {
+    padding-bottom: 3rem;
+    border-bottom: 2px solid #FFD700; /* ligne dorée */
+    margin-bottom: 3rem;
+}
+
+/* Ajoute une séparation entre portfolio (Services) et contact */
+#portfolio {
+    padding-bottom: 2rem !important; /* espace sous la section Services */
+    border-bottom: 2px solid #FFD700; /* ligne dorée épaisse */
+    margin-bottom: 2rem; /* espace entre la ligne et la section suivante */
+    margin-top: 0 !important;
+}
+
+#contact {
+    padding-top: 1rem; /* espace au-dessus du formulaire */
+}
+
 /* ===== Blazor error UI ===== */
 #blazor-error-ui {
     background: lightyellow;
@@ -81,6 +113,10 @@ a, .btn-link {
     }
 
 /* ===== Masthead ===== */
+.masthead {
+    padding-top: 70px; /* ou margin-top: 70px */
+}
+
 .masthead h1 {
     font-size: 3rem;
     font-weight: bold;
@@ -101,6 +137,9 @@ a, .btn-link {
     position: sticky;
     top: 0;
     z-index: 1000;
+    position: fixed;
+    left: 0;
+    right: 0;
 }
 
 .navbar-left {
@@ -285,8 +324,8 @@ html body article[b-pg0mbkrefo] {
 
     .portfolio-caption-subheading {
         font-size: 0.9rem;
-        text-align: center;
-        padding: 0 10px;
+        text-align: justify;
+        padding: 10px 10px;
     }
 
     #lots .col-md-4 {

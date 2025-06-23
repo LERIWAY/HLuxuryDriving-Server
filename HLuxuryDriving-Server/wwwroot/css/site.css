@@ -66,14 +66,14 @@ a, .btn-link {
 /* Séparation entre Atouts (#lots) et Services (#portfolio) */
 #lots {
     padding-bottom: 3rem;
-    border-bottom: 4px solid #FFD700; /* ligne dorée */
+    border-bottom: 2px solid #FFD700; /* ligne dorée */
     margin-bottom: 3rem;
 }
 
 /* Ajoute une séparation entre portfolio (Services) et contact */
 #portfolio {
     padding-bottom: 2rem !important; /* espace sous la section Services */
-    border-bottom: 4px solid #FFD700; /* ligne dorée épaisse */
+    border-bottom: 2px solid #FFD700; /* ligne dorée épaisse */
     margin-bottom: 2rem; /* espace entre la ligne et la section suivante */
     margin-top: 0 !important;
 }
