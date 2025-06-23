@@ -57,6 +57,10 @@
       "PackagePath": "staticwebassets/favicon.png"
     },
     {
+      "Id": "/mnt/c/Users/OkkesAmoca/Desktop/Projets/HLuxuryDriving-Server/HLuxuryDriving-Server/wwwroot/img/car_logo.png",
+      "PackagePath": "staticwebassets/img/car_logo.png"
+    },
+    {
       "Id": "/mnt/c/Users/OkkesAmoca/Desktop/Projets/HLuxuryDriving-Server/HLuxuryDriving-Server/wwwroot/img/frankfurtAirport.jpg",
       "PackagePath": "staticwebassets/img/frankfurtAirport.jpg"
     },

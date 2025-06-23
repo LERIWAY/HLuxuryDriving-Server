@@ -11,6 +11,7 @@ wwwroot\css\open-iconic\ICON-LICENSE
 wwwroot\css\open-iconic\README.md
 wwwroot\css\site.css
 wwwroot\favicon.png
+wwwroot\img\car_logo.png
 wwwroot\img\frankfurtAirport.jpg
 wwwroot\img\h-luxury-car.jpg
 wwwroot\img\h-luxury-driving-logo.png

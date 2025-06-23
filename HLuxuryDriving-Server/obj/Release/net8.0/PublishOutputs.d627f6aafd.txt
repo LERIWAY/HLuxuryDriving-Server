@@ -1,0 +1,12 @@
+/mnt/c/Users/OkkesAmoca/Desktop/Projets/HLuxuryDriving-Server/publish/HLuxuryDriving-Server
+/mnt/c/Users/OkkesAmoca/Desktop/Projets/HLuxuryDriving-Server/publish/publish/web.config
+/mnt/c/Users/OkkesAmoca/Desktop/Projets/HLuxuryDriving-Server/publish/appsettings.Development.json
+/mnt/c/Users/OkkesAmoca/Desktop/Projets/HLuxuryDriving-Server/publish/appsettings.json
+/mnt/c/Users/OkkesAmoca/Desktop/Projets/HLuxuryDriving-Server/publish/publish/appsettings.Development.json
+/mnt/c/Users/OkkesAmoca/Desktop/Projets/HLuxuryDriving-Server/publish/publish/appsettings.json
+/mnt/c/Users/OkkesAmoca/Desktop/Projets/HLuxuryDriving-Server/publish/publish/HLuxuryDriving-Server.deps.json
+/mnt/c/Users/OkkesAmoca/Desktop/Projets/HLuxuryDriving-Server/publish/publish/HLuxuryDriving-Server.runtimeconfig.json
+/mnt/c/Users/OkkesAmoca/Desktop/Projets/HLuxuryDriving-Server/publish/HLuxuryDriving-Server.dll
+/mnt/c/Users/OkkesAmoca/Desktop/Projets/HLuxuryDriving-Server/publish/HLuxuryDriving-Server.deps.json
+/mnt/c/Users/OkkesAmoca/Desktop/Projets/HLuxuryDriving-Server/publish/HLuxuryDriving-Server.runtimeconfig.json
+/mnt/c/Users/OkkesAmoca/Desktop/Projets/HLuxuryDriving-Server/publish/HLuxuryDriving-Server.pdb

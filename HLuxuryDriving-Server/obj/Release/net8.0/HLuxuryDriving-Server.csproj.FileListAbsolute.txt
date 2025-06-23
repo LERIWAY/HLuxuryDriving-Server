@@ -30,3 +30,8 @@
 /mnt/c/Users/OkkesAmoca/Desktop/Projets/HLuxuryDriving-Server/HLuxuryDriving-Server/obj/Release/net8.0/HLuxuryDriving-Server.pdb
 /mnt/c/Users/OkkesAmoca/Desktop/Projets/HLuxuryDriving-Server/HLuxuryDriving-Server/obj/Release/net8.0/HLuxuryDriving-Server.genruntimeconfig.cache
 /mnt/c/Users/OkkesAmoca/Desktop/Projets/HLuxuryDriving-Server/HLuxuryDriving-Server/obj/Release/net8.0/ref/HLuxuryDriving-Server.dll
+/mnt/c/Users/OkkesAmoca/Desktop/Projets/HLuxuryDriving-Server/HLuxuryDriving-Server/bin/Release/net8.0/publish/web.config
+/mnt/c/Users/OkkesAmoca/Desktop/Projets/HLuxuryDriving-Server/HLuxuryDriving-Server/bin/Release/net8.0/publish/appsettings.Development.json
+/mnt/c/Users/OkkesAmoca/Desktop/Projets/HLuxuryDriving-Server/HLuxuryDriving-Server/bin/Release/net8.0/publish/appsettings.json
+/mnt/c/Users/OkkesAmoca/Desktop/Projets/HLuxuryDriving-Server/HLuxuryDriving-Server/bin/Release/net8.0/publish/HLuxuryDriving-Server.deps.json
+/mnt/c/Users/OkkesAmoca/Desktop/Projets/HLuxuryDriving-Server/HLuxuryDriving-Server/bin/Release/net8.0/publish/HLuxuryDriving-Server.runtimeconfig.json
