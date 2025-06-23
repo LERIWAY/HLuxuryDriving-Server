@@ -4,14 +4,15 @@
 
 <div class="page">
     <main>
-        <nav class="navbar" id="mainNavbar">
+        <nav tabindex="0" class="navbar" id="mainNavbar">
             <div class="navbar-left">
                 <button class="menu-toggle" @onclick="ToggleMenu">
                     <span class="bar"></span>
                     <span class="bar"></span>
                     <span class="bar"></span>
                 </button>
-                <img src="img/h-luxury-driving-logo.svg" alt="Logo" class="navbar-logo" />
+                <img src="img/h-luxury-driving-logo.svg" alt="Logo" class="navbar-logo" style="cursor:pointer;"
+                     @onclick="@(() => ScrollToSection("masthead"))" />
             </div>
 
             <ul class="nav-links @(isMenuOpen ? "open" : "")">
@@ -25,7 +26,7 @@
             @Body
 
             <!-- Footer -->
-            <footer class="custom-footer">
+            <footer tabindex="0" class="custom-footer">
                 <div class="footer-container">
                     <div class="footer-left">
                         <img src="img/h-luxury-driving-logo.svg" alt="Logo H Luxury" class="footer-logo" />
@@ -47,7 +48,7 @@
 
 
             <!-- Bouton WhatsApp -->
-            <div class="whatsapp-wrapper">
+            <div tabindex="0" class="whatsapp-wrapper">
                 <a href="https://wa.me/33615243787" class="whatsapp-float" target="_blank" rel="noopener">
                     <i class="fab fa-whatsapp"></i>
                 </a>

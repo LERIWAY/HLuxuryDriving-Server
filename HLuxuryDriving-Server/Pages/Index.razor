@@ -5,7 +5,7 @@
 <div class="scroll-container">
     <!-- Masthead avec image de fond -->
     <header id="masthead" class="masthead" style="background-image: url('img/h-luxury-car.jpg'); background-size: cover; background-position: center; height: 100vh; color: white;">
-        <div class="container h-100 d-flex align-items-center justify-content-center text-center">
+        <div tabindex="0" class="container h-100 d-flex align-items-center justify-content-center text-center">
             <div>
                 <h1 class="masthead-heading text-uppercase">Voyagez avec élégance et sérénité</h1>
                 <p class="masthead-subheading">
@@ -20,7 +20,7 @@
     </header>
 
     <!-- Atouts -->
-    <section class="page-section" id="lots" style="padding-top: 80px;">
+    <section tabindex="0" class="page-section" id="lots" style="padding-top: 80px;">
         <div class="container">
             <div class="text-center mb-5">
                 <h2 class="section-heading text-uppercase" style="font-size: 2.5rem; font-weight: 700; letter-spacing: 1px;">
@@ -56,7 +56,7 @@
     </section>
 
     <!-- Services -->
-    <section class="page-section bg-light" id="portfolio" style="padding-top: 80px; margin-top: -70px;">
+    <section tabindex="0" class="page-section bg-light" id="portfolio" style="padding-top: 80px; margin-top: -70px; padding-bottom: 5rem">
         <div class="container">
             <div class="text-center mb-5">
                 <h2 class="section-heading text-uppercase" style="font-size: 2.5rem; font-weight: 700; letter-spacing: 1px;">
@@ -88,9 +88,9 @@
     </section>
 
     <!-- Contact -->
-    <section class="page-section" id="contact" style="padding-top: 1rem; padding-bottom: 10%">
+    <section class="page-section" id="contact" style="padding-bottom: 7%">
         <div class="container">
-            <div class="text-center mb-5">
+            <div tabindex="0" class="text-center mb-5">
                 <h2 class="section-heading text-uppercase" style="font-size: 2.5rem; font-weight: 700; letter-spacing: 1px;">
                     Formulaire de réservation
                 </h2>
@@ -115,7 +115,7 @@
                     <!-- Colonne gauche : Informations personnelles -->
                     <div class="col-md-6">
                         <div class="text-center mb-4">
-                            <h5 class="fw-bold px-4 py-2" style="color: #FFD700; border: 2px solid black; display: inline-block; border-radius: 6px;">
+                            <h5 tabindex="0" class="fw-bold px-4 py-2" style="color: #FFD700; border: 2px solid black; display: inline-block; border-radius: 6px;">
                                 Informations de contact
                             </h5>
                         </div>
@@ -138,7 +138,7 @@
                     <!-- Colonne droite : Détails de réservation -->
                     <div class="col-md-6">
                         <div class="text-center mb-4">
-                            <h5 class="fw-bold px-4 py-2" style="color: #FFD700; border: 2px solid black; display: inline-block; border-radius: 6px;">
+                            <h5 tabindex="0" class="fw-bold px-4 py-2" style="color: #FFD700; border: 2px solid black; display: inline-block; border-radius: 6px;">
                                 Détails de réservation
                             </h5>
                         </div>
@@ -152,13 +152,13 @@
                         @* <ValidationMessage For="@(() => reservation.Arrivee)" /> *@
 
                         <div class="mb-3">
-                            <label class="form-label fw-bold">📅 Date de départ</label>
+                            <label tabindex="0" class="form-label fw-bold">📅 Date de départ</label>
                             <InputDate class="form-control" @bind-Value="reservation.Date" />
                             @* <ValidationMessage For="@(() => reservation.Date)" /> *@
                         </div>
 
                         <div class="mb-3">
-                            <label class="form-label fw-bold">🕒 Heure de départ</label>
+                            <label tabindex="0" class="form-label fw-bold">🕒 Heure de départ</label>
                             <InputText type="time" class="form-control"
                                        @bind-Value="reservation.Heure" />
                             @* <ValidationMessage For="@(() => reservation.Heure)" /> *@
@@ -168,7 +168,7 @@
                     </div>
                 </div>
 
-                <div class="text-center">
+                <div tabindex="0" class="text-center">
                     <button class="btn-send-yellow text-uppercase btn-xl" type="submit">
                         Envoyer
                     </button>
