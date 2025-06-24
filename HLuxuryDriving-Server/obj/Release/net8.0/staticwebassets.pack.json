@@ -85,6 +85,10 @@
       "PackagePath": "staticwebassets/img/serviceEtChauffeur.jpg"
     },
     {
+      "Id": "/mnt/c/Users/OkkesAmoca/Desktop/Projets/HLuxuryDriving-Server/HLuxuryDriving-Server/wwwroot/sitemap.xml",
+      "PackagePath": "staticwebassets/sitemap.xml"
+    },
+    {
       "Id": "/mnt/c/Users/OkkesAmoca/Desktop/Projets/HLuxuryDriving-Server/HLuxuryDriving-Server/wwwroot/video/LuxuryTravelExperience.mp4",
       "PackagePath": "staticwebassets/video/LuxuryTravelExperience.mp4"
     },

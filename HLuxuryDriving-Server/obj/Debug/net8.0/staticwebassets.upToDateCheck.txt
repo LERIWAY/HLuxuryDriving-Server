@@ -18,4 +18,5 @@ wwwroot\img\h-luxury-driving-logo.png
 wwwroot\img\h-luxury-driving-logo.svg
 wwwroot\img\petiteFrance.jpg
 wwwroot\img\serviceEtChauffeur.jpg
+wwwroot\sitemap.xml
 wwwroot\video\LuxuryTravelExperience.mp4
