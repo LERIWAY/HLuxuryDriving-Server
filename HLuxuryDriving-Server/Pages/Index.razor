@@ -266,7 +266,7 @@
                     <hr>
                     <strong>📍 Adresse de départ :</strong> {reservation.Depart}<br>
                     <strong>🚩 Adresse d'arrivée :</strong> {reservation.Arrivee}<br>
-                    <strong>🗓️ Date du trajet :</strong> {reservation.Date}<br>
+                    <strong>🗓️ Date du trajet :</strong> {reservation.Date:dd/MM/yyyy}<br>
                     <strong>🕒 Heure de départ :</strong> {reservation.Heure?.Substring(0, 5)}<br>
                     <strong>🗒️ Commentaire :</strong><br>
                         <div style='border-left: 4px solid #FFD700; background-color: #f9f9f9; padding: 10px; margin: 10px 0; font-style: italic;''>
@@ -303,12 +303,12 @@
                     <hr>
                     <strong>📍 Adresse de départ :</strong> {reservation.Depart}<br>
                     <strong>🚩 Adresse d'arrivée :</strong> {reservation.Arrivee}<br>
-                    <strong>🗓️ Date du trajet :</strong> {reservation.Date}<br>
+                    <strong>🗓️ Date du trajet :</strong> {reservation.Date:dd/MM/yyyy}<br>
                     <strong>🕒 Heure de départ :</strong> {reservation.Heure?.Substring(0, 5)}<br>
                     <strong>🗒️ Commentaire :</strong><br>
                         <div style='border-left: 4px solid #FFD700; background-color: #f9f9f9; padding: 10px; margin: 10px 0; font-style: italic;''>
                             {commentaireHtml}
-                        </div><br>
+                        </div>
                 </div>
 
                 <p>Votre chauffeur vous contactera pour confirmer votre réservation.</p>
@@ -342,7 +342,7 @@
     private void ClearForm()
     {
         reservation.Prenom = reservation.Nom = reservation.Email = reservation.Telephone = reservation.Depart = reservation.Arrivee = reservation.Commentaire = reservation.Heure = null;
-        reservation.Date = DateOnly.FromDateTime(DateTime.Now);
+        reservation.Date = null;
     }
 
     private EditContext editContext;

@@ -3,6 +3,14 @@
   "WorkspaceRootPath": "C:\\Users\\OkkesAmoca\\Desktop\\Projets\\HLuxuryDriving-Server\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{5F8FBA8C-ACBC-481D-A8F7-E0347772A21F}|HLuxuryDriving-Server\\HLuxuryDriving-Server.csproj|c:\\users\\okkesamoca\\desktop\\projets\\hluxurydriving-server\\hluxurydriving-server\\pages\\index.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5F8FBA8C-ACBC-481D-A8F7-E0347772A21F}|HLuxuryDriving-Server\\HLuxuryDriving-Server.csproj|solutionrelative:hluxurydriving-server\\pages\\index.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5F8FBA8C-ACBC-481D-A8F7-E0347772A21F}|HLuxuryDriving-Server\\HLuxuryDriving-Server.csproj|c:\\users\\okkesamoca\\desktop\\projets\\hluxurydriving-server\\hluxurydriving-server\\pages\\_host.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5F8FBA8C-ACBC-481D-A8F7-E0347772A21F}|HLuxuryDriving-Server\\HLuxuryDriving-Server.csproj|solutionrelative:hluxurydriving-server\\pages\\_host.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{5F8FBA8C-ACBC-481D-A8F7-E0347772A21F}|HLuxuryDriving-Server\\HLuxuryDriving-Server.csproj|c:\\users\\okkesamoca\\desktop\\projets\\hluxurydriving-server\\hluxurydriving-server\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{5F8FBA8C-ACBC-481D-A8F7-E0347772A21F}|HLuxuryDriving-Server\\HLuxuryDriving-Server.csproj|solutionrelative:hluxurydriving-server\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
@@ -15,16 +23,8 @@
       "RelativeMoniker": "D:0:0:{5F8FBA8C-ACBC-481D-A8F7-E0347772A21F}|HLuxuryDriving-Server\\HLuxuryDriving-Server.csproj|solutionrelative:hluxurydriving-server\\models\\smtpsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5F8FBA8C-ACBC-481D-A8F7-E0347772A21F}|HLuxuryDriving-Server\\HLuxuryDriving-Server.csproj|c:\\users\\okkesamoca\\desktop\\projets\\hluxurydriving-server\\hluxurydriving-server\\pages\\_host.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{5F8FBA8C-ACBC-481D-A8F7-E0347772A21F}|HLuxuryDriving-Server\\HLuxuryDriving-Server.csproj|solutionrelative:hluxurydriving-server\\pages\\_host.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{5F8FBA8C-ACBC-481D-A8F7-E0347772A21F}|HLuxuryDriving-Server\\HLuxuryDriving-Server.csproj|c:\\users\\okkesamoca\\desktop\\projets\\hluxurydriving-server\\hluxurydriving-server\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
       "RelativeMoniker": "D:0:0:{5F8FBA8C-ACBC-481D-A8F7-E0347772A21F}|HLuxuryDriving-Server\\HLuxuryDriving-Server.csproj|solutionrelative:hluxurydriving-server\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5F8FBA8C-ACBC-481D-A8F7-E0347772A21F}|HLuxuryDriving-Server\\HLuxuryDriving-Server.csproj|c:\\users\\okkesamoca\\desktop\\projets\\hluxurydriving-server\\hluxurydriving-server\\pages\\index.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{5F8FBA8C-ACBC-481D-A8F7-E0347772A21F}|HLuxuryDriving-Server\\HLuxuryDriving-Server.csproj|solutionrelative:hluxurydriving-server\\pages\\index.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,7 +34,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
@@ -46,20 +46,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "_Host.cshtml",
               "DocumentMoniker": "C:\\Users\\OkkesAmoca\\Desktop\\Projets\\HLuxuryDriving-Server\\HLuxuryDriving-Server\\Pages\\_Host.cshtml",
               "RelativeDocumentMoniker": "HLuxuryDriving-Server\\Pages\\_Host.cshtml",
               "ToolTip": "C:\\Users\\OkkesAmoca\\Desktop\\Projets\\HLuxuryDriving-Server\\HLuxuryDriving-Server\\Pages\\_Host.cshtml",
               "RelativeToolTip": "HLuxuryDriving-Server\\Pages\\_Host.cshtml",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAAB4AAAAsAAAAAAAAAA==",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAAAB4AAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-06-24T09:44:23.176Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "SmtpSettings.cs",
               "DocumentMoniker": "C:\\Users\\OkkesAmoca\\Desktop\\Projets\\HLuxuryDriving-Server\\HLuxuryDriving-Server\\Models\\SmtpSettings.cs",
               "RelativeDocumentMoniker": "HLuxuryDriving-Server\\Models\\SmtpSettings.cs",
@@ -67,12 +67,11 @@
               "RelativeToolTip": "HLuxuryDriving-Server\\Models\\SmtpSettings.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-24T09:42:33.1Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-24T09:42:33.1Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\OkkesAmoca\\Desktop\\Projets\\HLuxuryDriving-Server\\HLuxuryDriving-Server\\Program.cs",
               "RelativeDocumentMoniker": "HLuxuryDriving-Server\\Program.cs",
@@ -80,25 +79,23 @@
               "RelativeToolTip": "HLuxuryDriving-Server\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-24T09:40:55.623Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-24T09:40:55.623Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\OkkesAmoca\\Desktop\\Projets\\HLuxuryDriving-Server\\HLuxuryDriving-Server\\appsettings.json",
               "RelativeDocumentMoniker": "HLuxuryDriving-Server\\appsettings.json",
               "ToolTip": "C:\\Users\\OkkesAmoca\\Desktop\\Projets\\HLuxuryDriving-Server\\HLuxuryDriving-Server\\appsettings.json",
               "RelativeToolTip": "HLuxuryDriving-Server\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-06-24T09:22:33.631Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-24T09:22:33.631Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "site.css",
               "DocumentMoniker": "C:\\Users\\OkkesAmoca\\Desktop\\Projets\\HLuxuryDriving-Server\\HLuxuryDriving-Server\\wwwroot\\css\\site.css",
               "RelativeDocumentMoniker": "HLuxuryDriving-Server\\wwwroot\\css\\site.css",
@@ -106,18 +103,17 @@
               "RelativeToolTip": "HLuxuryDriving-Server\\wwwroot\\css\\site.css",
               "ViewState": "AgIAACsCAAAAAAAAAAAIwDICAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-06-23T13:45:10.377Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-23T13:45:10.377Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 0,
               "Title": "Index.razor",
               "DocumentMoniker": "C:\\Users\\OkkesAmoca\\Desktop\\Projets\\HLuxuryDriving-Server\\HLuxuryDriving-Server\\Pages\\Index.razor",
               "RelativeDocumentMoniker": "HLuxuryDriving-Server\\Pages\\Index.razor",
               "ToolTip": "C:\\Users\\OkkesAmoca\\Desktop\\Projets\\HLuxuryDriving-Server\\HLuxuryDriving-Server\\Pages\\Index.razor",
               "RelativeToolTip": "HLuxuryDriving-Server\\Pages\\Index.razor",
-              "ViewState": "AgIAACIBAAAAAAAAAAAgwCoBAABEAAAAAAAAAA==",
+              "ViewState": "AgIAACIBAAAAAAAAAAAgwFgBAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-06-23T06:28:07.928Z",
               "EditorCaption": ""
