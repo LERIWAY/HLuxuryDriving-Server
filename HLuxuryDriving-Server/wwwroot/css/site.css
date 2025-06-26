@@ -539,25 +539,42 @@ html body article[b-pg0mbkrefo] {
     }
 
 .video-overlay {
+    background-color: rgba(0, 0, 0, 0.3);
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.4);
     z-index: 0;
+    /* Ne pas animer */
+    transition: none;
 }
 
-/* Fallback image quand la vidéo est masquée */
-@media (max-width: 768px) {
-    .video-background video {
-        display: none;
+
+.fade-in-video {
+    opacity: 0;
+    animation: fadeInVideo 0.75s ease-in 0.3s forwards; /* décalage de 0.3s */
+    background-color: black
+}
+
+/* Animation de fondu */
+@keyframes fadeInVideo {
+    0% {
+        opacity: 0;
     }
 
-    .video-background {
-        background-image: url('img/h-luxury-car.jpg');
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
+    100% {
+        opacity: 1;
     }
 }
+
+.video-background-fallback {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000; /* ou toute autre couleur de fond souhaitée */
+    z-index: -2;
+}
+

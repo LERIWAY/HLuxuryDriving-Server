@@ -73,7 +73,18 @@
           video.style.display = 'none';
           document.querySelector('.video-overlay').style.display = 'block'; // ou afficher une image
         });
-
     </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const video = document.getElementById('bg-video');
+            if (video) {
+                video.addEventListener('playing', () => {
+                    video.style.opacity = '1';
+                });
+            }
+        });
+    </script>
+
 </body>
 </html>
