@@ -39,7 +39,6 @@
         </div>
     </header>
 
-
     <!-- Atouts -->
     <section tabindex="0" class="page-section" id="lots" style="padding-top: 80px;">
         <div class="container">
@@ -203,11 +202,78 @@
 
         </div>
     </section>
+
+    <!-- Avis -->
+    <section class="testimonial-carousel py-5" id="avis">
+        <div class="container text-center position-relative">
+            <h2 class="mb-4">Ce que nos clients disent</h2>
+            <div style="width: 60px; height: 4px; background-color: #FFD700; margin: 20px auto 40px; border-radius: 2px;"></div>
+
+            <!-- Flèche gauche -->
+            <button class="carousel-btn left" onclick="handlePrevClick()" aria-label="Précédent">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <polyline points="15 18 9 12 15 6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </button>
+
+            <div class="carousel">
+                <div class="carousel-track" id="carouselTrack">
+                    @foreach (var (texte, note) in testimonials)
+                    {
+                        <div class="testimonial">
+                            <div class="stars">
+                                @for (int i = 1; i <= 5; i++)
+                                {
+                                    if (note >= i)
+                                    {
+                                        <span class="star full">★</span>
+                                    }
+                                    else if (note >= i - 0.5)
+                                    {
+                                        <span class="star half"><span class="half-inner">★</span></span>
+                                    }
+                                    else
+                                    {
+                                        <span class="star empty">★</span>
+                                    }
+                                }
+                                <span class="note-text">@note.ToString("0.0")/5</span>
+                            </div>
+                            <p>@texte</p>
+                        </div>
+                    }
+                </div>
+            </div>
+
+
+            <!-- Flèche droite -->
+            <button class="carousel-btn right" onclick="handleNextClick()" aria-label="Suivant">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <polyline points="9 6 15 12 9 18" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </button>
+
+        </div>
+    </section>
 </div>
 
 
 @code {
     @inject IJSRuntime JS
+
+    private List<(string Texte, double Note)> testimonials = new()
+    {
+        ("Service impeccable, chauffeur ponctuel et très professionnel.", 5),
+        ("Une expérience de luxe du début à la fin. Je recommande vivement.", 5),
+        ("Voiture très propre, conduite agréable, top !", 4),
+        ("J’ai utilisé leurs services pour un mariage, parfait.", 5),
+        ("Un vrai service haut de gamme à Strasbourg.", 4),
+        ("Merci pour votre gentillesse et professionnalisme !", 5),
+        ("Réservation facile et communication rapide. Bravo.", 4),
+        ("Super discret, très élégant, rien à redire.", 4),
+        ("Je referai appel à vous sans hésiter !", 4),
+        ("Ponctualité, confort, luxe. Tout y est." , 5)
+    };
 
     private async Task ScrollToSection(string id)
     {

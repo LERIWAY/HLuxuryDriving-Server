@@ -86,5 +86,60 @@
         });
     </script>
 
+    <script>
+        let index = 0;
+        let interval;
+        let autoScrollActive = true;
+
+        function showSlide(i) {
+            const track = document.getElementById("carouselTrack");
+            const testimonials = track.children;
+            if (!track || testimonials.length === 0) return;
+
+            index = (i + testimonials.length) % testimonials.length;
+
+            const slideWidth = testimonials[0].offsetWidth + 32; // 2rem gap
+            const offset = -index * slideWidth;
+
+            track.style.transform = `translateX(${offset}px)`;
+        }
+
+        function nextSlide() {
+            showSlide(index + 1);
+        }
+
+        function prevSlide() {
+            showSlide(index - 1);
+        }
+
+        function stopAutoScroll() {
+            if (autoScrollActive) {
+                clearInterval(interval);
+                autoScrollActive = false;
+            }
+        }
+
+        function handleNextClick() {
+            stopAutoScroll();
+            nextSlide();
+        }
+
+        function handlePrevClick() {
+            stopAutoScroll();
+            prevSlide();
+        }
+
+        window.addEventListener("load", () => {
+            showSlide(0);
+            interval = setInterval(() => {
+                if (autoScrollActive) {
+                    nextSlide();
+                }
+            }, 4000);
+        });
+    </script>
+
+
+
 </body>
 </html>
