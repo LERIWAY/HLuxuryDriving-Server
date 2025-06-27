@@ -76,15 +76,48 @@ a, .btn-link {
 
 /* Ajoute une séparation entre portfolio (Services) et contact */
 #portfolio {
-    padding-bottom: 2rem !important; /* espace sous la section Services */
+    padding-bottom: 5rem !important; /* espace sous la section Services */
     border-bottom: 2px solid #FFD700; /* ligne dorée épaisse */
-    margin-bottom: 2rem; /* espace entre la ligne et la section suivante */
+    margin-bottom: 3rem; /* espace entre la ligne et la section suivante */
     margin-top: 0 !important;
 }
 
 #contact {
     padding-top: 1rem; /* espace au-dessus du formulaire */
 }
+
+.contact-heading {
+    background-color: #111; /* noir doux */
+    color: #FFD700;
+    border: 2px solid #FFD700;
+    display: inline-block;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+    .contact-heading:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 12px rgba(255, 215, 0, 0.5);
+    }
+
+.reservation-heading {
+    background-color: #111; /* noir doux */
+    color: #FFD700;
+    border: 2px solid #FFD700;
+    display: inline-block;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+    .reservation-heading:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 12px rgba(255, 215, 0, 0.5);
+    }
+
 
 /* ===== Blazor error UI ===== */
 #blazor-error-ui {
@@ -506,7 +539,7 @@ html body article[b-pg0mbkrefo] {
 }
 
     .btn-send-yellow:hover {
-        background: transparent;
+        background: black;
         color: #FFD700;
         border: 2px solid #FFD700;
         box-shadow: 0 0 12px rgba(255, 215, 0, 0.5);
@@ -611,8 +644,7 @@ html body article[b-pg0mbkrefo] {
     background: white;
     border-radius: 1rem;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    font-style: italic;
-    color: #333;
+    font-style: normal;
 }
 
 @keyframes scroll {
@@ -724,5 +756,14 @@ html body article[b-pg0mbkrefo] {
     color: #666;
 }
 
-
+.badge-verified {
+    display: inline-block;
+    background-color: #e0f5e9;
+    color: #2e7d32;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 4px 8px;
+    border-radius: 12px;
+    margin-top: 5px;
+}
 

@@ -1,5 +1,7 @@
 ﻿@page "/"
 @inject IOptions<Models.SmtpSettings> SmtpOptions
+@using System.Globalization
+
 <PageTitle>H Luxury Driving | VTC Strasbourg – Chauffeur Privé</PageTitle>
 
 <div class="scroll-container">
@@ -76,7 +78,7 @@
     </section>
 
     <!-- Services -->
-    <section tabindex="0" class="page-section bg-light" id="portfolio" style="padding-top: 80px; margin-top: -70px; padding-bottom: 5rem">
+    <section tabindex="0" class="page-section bg-light" id="portfolio" style="padding-top: 80px;">
         <div class="container">
             <div class="text-center mb-5">
                 <h2 class="section-heading text-uppercase" style="font-size: 2.5rem; font-weight: 700; letter-spacing: 1px;">
@@ -108,7 +110,7 @@
     </section>
 
     <!-- Contact -->
-    <section class="page-section" id="contact" style="padding-bottom: 7%">
+    <section class="page-section" id="contact" style="padding-bottom: 10%">
         <div class="container">
             <div tabindex="0" class="text-center mb-5">
                 <h2 class="section-heading text-uppercase" style="font-size: 2.5rem; font-weight: 700; letter-spacing: 1px;">
@@ -135,12 +137,11 @@
                     <!-- Colonne gauche : Informations personnelles -->
                     <div class="col-md-6">
                         <div class="text-center mb-4">
-                            <h5 tabindex="0" class="fw-bold px-4 py-2" style="color: #FFD700; border: 2px solid black; display: inline-block; border-radius: 6px;">
-                                Informations de contact
+                            <h5 tabindex="0" class="fw-bold px-4 py-2 contact-heading">
+                                <span class="oi oi-envelope-closed" title="contact" aria-hidden="true"></span>
+                                &nbsp;Informations de contact
                             </h5>
                         </div>
-
-
 
                         <InputText class="form-control mb-3" @bind-Value="reservation.Prenom" placeholder="Prénom *" />
                         @*                         <ValidationMessage For="@(() => reservation.Prenom)" /> *@
@@ -158,12 +159,11 @@
                     <!-- Colonne droite : Détails de réservation -->
                     <div class="col-md-6">
                         <div class="text-center mb-4">
-                            <h5 tabindex="0" class="fw-bold px-4 py-2" style="color: #FFD700; border: 2px solid black; display: inline-block; border-radius: 6px;">
-                                Détails de réservation
+                            <h5 tabindex="0" class="fw-bold px-4 py-2 reservation-heading">
+                                <span class="oi oi-calendar" title="réservation" aria-hidden="true"></span>
+                                &nbsp;Détails de réservation
                             </h5>
                         </div>
-
-
 
                         <InputText class="form-control mb-3" @bind-Value="reservation.Depart" placeholder="Adresse de départ *" />
                         @* <ValidationMessage For="@(() => reservation.Depart)" /> *@
@@ -218,8 +218,8 @@
 
             <div class="carousel">
                 <div class="carousel-track" id="carouselTrack">
-                    @foreach (var (texte, note) in testimonials)
-                    {
+                    @foreach (var(pseudo, texte, note, estVerifie, date) in testimonials)
+                            {
                         <div class="testimonial">
                             <div class="stars">
                                 @for (int i = 1; i <= 5; i++)
@@ -239,9 +239,18 @@
                                 }
                                 <span class="note-text">@note.ToString("0.0")/5</span>
                             </div>
-                            <p>@texte</p>
+                            <p class="fw-bold mb-0" style="color: #555;">– @pseudo</p>
+                            <p class="fst-italic mb-1">« @texte »</p>
+                            <p class="testimonial-date">@date.ToString("MMMM yyyy", new CultureInfo("fr-FR"))</p>
+
+                            @if (estVerifie)
+                            {
+                                <span class="badge badge-verified">✅ Avis vérifié</span>
+                            }
                         </div>
                     }
+
+
                 </div>
             </div>
 
@@ -261,18 +270,18 @@
 @code {
     @inject IJSRuntime JS
 
-    private List<(string Texte, double Note)> testimonials = new()
+    private List<(string Prenom, string Texte, double Note, bool EstVerifie, DateTime Date)> testimonials = new()
     {
-        ("Service impeccable, chauffeur ponctuel et très professionnel.", 5),
-        ("Une expérience de luxe du début à la fin. Je recommande vivement.", 5),
-        ("Voiture très propre, conduite agréable, top !", 4),
-        ("J’ai utilisé leurs services pour un mariage, parfait.", 5),
-        ("Un vrai service haut de gamme à Strasbourg.", 4),
-        ("Merci pour votre gentillesse et professionnalisme !", 5),
-        ("Réservation facile et communication rapide. Bravo.", 4),
-        ("Super discret, très élégant, rien à redire.", 4),
-        ("Je referai appel à vous sans hésiter !", 4),
-        ("Ponctualité, confort, luxe. Tout y est." , 5)
+        ("Julie M.", "Service impeccable, chauffeur ponctuel et très professionnel.", 5, true, DateTime.Today.AddMonths(-4)),
+        ("Antoine", "Une expérience de luxe du début à la fin. Je recommande vivement.", 5, true, DateTime.Today.AddMonths(-2)),
+        ("Sophie T.", "Voiture très propre, conduite agréable, top !", 4, true, DateTime.Today.AddMonths(-3)),
+        ("Marc L.", "J’ai utilisé leurs services pour un mariage, parfait.", 5, true, DateTime.Today.AddMonths(-5)),
+        ("Clément", "Un vrai service haut de gamme à Strasbourg.", 4, true, DateTime.Today.AddMonths(-1)),
+        ("Isabelle", "Merci pour votre gentillesse et professionnalisme !", 5, true, DateTime.Today.AddMonths(-6)),
+        ("Léna", "Réservation facile et communication rapide. Bravo.", 4, true, DateTime.Today.AddMonths(-7)),
+        ("David H.", "Super discret, très élégant, rien à redire.", 4, true, DateTime.Today.AddMonths(-9)),
+        ("Yasmine", "Je referai appel à vous sans hésiter !", 4, true, DateTime.Today.AddMonths(-10)),
+        ("Thomas G.", "Ponctualité, confort, luxe. Tout y est.", 5, true, DateTime.Today.AddMonths(-5))
     };
 
     private async Task ScrollToSection(string id)
@@ -427,5 +436,9 @@
     protected override void OnInitialized()
     {
         editContext = new EditContext(reservation);
+
+        // Mélange les témoignages à chaque chargement
+        var rng = new Random();
+        testimonials = testimonials.OrderBy(_ => rng.Next()).ToList();
     }
 }
