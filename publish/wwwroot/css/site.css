@@ -628,7 +628,7 @@ html body article[b-pg0mbkrefo] {
     background-color: #f8f9fa;
 }
 
-.carousel {
+.tarif-carousel .carousel {
     overflow: hidden;
     position: relative;
     max-width: 850px;
@@ -915,12 +915,12 @@ html body article[b-pg0mbkrefo] {
 
 @media (max-width: 768px) {
     /* Réduire la taille des flèches */
-    .carousel-btn {
+    .tarif-carousel .carousel-btn {
         width: 30px;
         height: 30px;
     }
 
-        .carousel-btn svg {
+        .tarif-carousel .carousel-btn svg {
             width: 20px;
             height: 20px;
         }

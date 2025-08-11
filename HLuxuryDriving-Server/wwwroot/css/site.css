@@ -634,8 +634,6 @@ html body article[b-pg0mbkrefo] {
     max-width: 850px;
     margin: auto;
     padding: 1rem 1.5rem 1rem 1rem;
-    overflow: hidden;
-    width: 100%;
 }
 
 .carousel-track {
@@ -681,7 +679,6 @@ html body article[b-pg0mbkrefo] {
     .carousel {
         margin-left: 2rem;
         margin-right: 2rem;
-        overflow: hidden;
     }
 }
 
@@ -777,7 +774,7 @@ html body article[b-pg0mbkrefo] {
     margin-top: 5px;
 }
 
-/* Section tarifs */
+/* ===== Section tarifs ===== */
 .tarif-carousel {
     background-color: transparent;
     position: relative;
@@ -802,36 +799,36 @@ html body article[b-pg0mbkrefo] {
     }
 
 /* Les cartes tarifs */
-.tarif-box {
-    flex: 0 0 calc(33.333% - 1.33rem); /* 3 cartes + gap */
-    max-width: calc(33.333% - 1.33rem);
-    min-width: calc(33.333% - 1.33rem);
-    padding: 1.5rem 2rem;
-    background: rgba(255, 215, 0, 0.1); /* jaune très clair transparent */
-    border-radius: 1rem;
-    text-align: center;
-    font-weight: 700;
-    font-size: 1.25rem;
-    user-select: none;
-    border: 2px solid #FFD700;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: default;
+    .tarif-carousel .tarif-box {
+        flex: 0 0 calc(33.333% - 1.33rem); /* 3 cartes + gap */
+        max-width: calc(33.333% - 1.33rem);
+        min-width: calc(33.333% - 1.33rem);
+        padding: 1.5rem 2rem;
+        background: rgba(255, 215, 0, 0.1); /* jaune très clair transparent */
+        border-radius: 1rem;
+        text-align: center;
+        font-weight: 700;
+        font-size: 1.25rem;
+        user-select: none;
+        border: 2px solid #FFD700;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        cursor: default;
+    }
+
+.tarif-carousel .tarif-box:hover {
+    background: rgba(255, 215, 0, 0.25);
+    transform: translateY(-5px);
 }
 
-    .tarif-box:hover {
-        background: rgba(255, 215, 0, 0.25);
-        transform: translateY(-5px);
-    }
-
     /* Prix en jaune */
-    .tarif-box span {
-        display: block;
-        margin-top: 0.7rem;
-        color: #FFD700;
-        font-weight: 900;
-        font-size: 1.4rem;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
+.tarif-carousel .tarif-box span {
+    display: block;
+    margin-top: 0.7rem;
+    color: #FFD700;
+    font-weight: 900;
+    font-size: 1.4rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
 /* Responsive */
 @media (max-width: 768px) {
@@ -839,7 +836,7 @@ html body article[b-pg0mbkrefo] {
         animation-duration: 45s;
     }
 
-    .tarif-box {
+    .tarif-carousel .tarif-box {
         flex: 0 0 100%;
         max-width: 80%;
         min-width: 100%;
@@ -858,7 +855,7 @@ html body article[b-pg0mbkrefo] {
         overflow: hidden !important;
     }
 
-    .tarif-box {
+    .tarif-carousel .tarif-box {
         font-size: 1.15rem;
         padding: 1.2rem 1.5rem;
         box-sizing: border-box;
@@ -915,12 +912,12 @@ html body article[b-pg0mbkrefo] {
 
 @media (max-width: 768px) {
     /* Réduire la taille des flèches */
-    .carousel-btn {
+    .tarif-carousel .carousel-btn {
         width: 30px;
         height: 30px;
     }
 
-        .carousel-btn svg {
+        .tarif-carousel .carousel-btn svg {
             width: 20px;
             height: 20px;
         }
