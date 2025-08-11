@@ -139,7 +139,58 @@
         });
     </script>
 
+    <script>
+        let tarifIndex = 0;
+        let tarifInterval;
+        let tarifAutoScrollActive = true;
 
+        function showTarifSlide(i) {
+          const track = document.getElementById("tarifCarouselTrack");
+          const items = track.children;
+          if (!track || items.length === 0) return;
 
+          tarifIndex = (i + items.length) % items.length;
+
+          // Calcul largeur + gap (2rem = 32px)
+          const slideWidth = items[0].offsetWidth + 32;
+          const offset = -tarifIndex * slideWidth;
+
+          track.style.transform = `translateX(${offset}px)`;
+        }
+
+        function nextTarifSlide() {
+          showTarifSlide(tarifIndex + 1);
+        }
+
+        function prevTarifSlide() {
+          showTarifSlide(tarifIndex - 1);
+        }
+
+        function stopTarifAutoScroll() {
+          if (tarifAutoScrollActive) {
+            clearInterval(tarifInterval);
+            tarifAutoScrollActive = false;
+          }
+        }
+
+        function handleNextTarifClick() {
+          stopTarifAutoScroll();
+          nextTarifSlide();
+        }
+
+        function handlePrevTarifClick() {
+          stopTarifAutoScroll();
+          prevTarifSlide();
+        }
+
+        window.addEventListener("load", () => {
+          showTarifSlide(0);
+          tarifInterval = setInterval(() => {
+            if (tarifAutoScrollActive) {
+              nextTarifSlide();
+            }
+          }, 4000);
+        });
+    </script>
 </body>
 </html>

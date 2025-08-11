@@ -6,6 +6,7 @@ html, body {
     scroll-behavior: smooth;
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
 }
 
 /* Tout élément focusable sauf champs formulaire */
@@ -168,6 +169,12 @@ a, .btn-link {
 .masthead-heading,
 .masthead-subheading {
     text-shadow: 0 2px 5px rgba(0, 0, 0, 0.6);
+}
+
+@media (max-width: 768px) {
+    .container.d-flex {
+        display: block !important;
+    }
 }
 
 /* ===== Navbar ===== */
@@ -356,7 +363,7 @@ html body article[b-pg0mbkrefo] {
 @media (max-width: 768px) {
     .masthead h1 {
         font-size: 1.8rem;
-        padding: 0 1rem;
+        padding: 0.5rem 1rem;
     }
 
     .masthead-subheading {
@@ -627,6 +634,8 @@ html body article[b-pg0mbkrefo] {
     max-width: 850px;
     margin: auto;
     padding: 1rem 1.5rem 1rem 1rem;
+    overflow: hidden;
+    width: 100%;
 }
 
 .carousel-track {
@@ -672,6 +681,7 @@ html body article[b-pg0mbkrefo] {
     .carousel {
         margin-left: 2rem;
         margin-right: 2rem;
+        overflow: hidden;
     }
 }
 
@@ -767,3 +777,151 @@ html body article[b-pg0mbkrefo] {
     margin-top: 5px;
 }
 
+/* Section tarifs */
+.tarif-carousel {
+    background-color: transparent;
+    position: relative;
+    padding: 2rem 0;
+}
+
+    /* Carousel container */
+    .tarif-carousel .carousel {
+        overflow: hidden;
+        position: relative;
+        width: 80%; /* largeur relative */
+        margin: 0 auto;
+        padding: 1rem 1.5rem 1rem 1rem;
+    }
+
+    /* Track flex container */
+    .tarif-carousel .carousel-track {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+        gap: 2rem;
+        padding: 0;
+    }
+
+/* Les cartes tarifs */
+.tarif-box {
+    flex: 0 0 calc(33.333% - 1.33rem); /* 3 cartes + gap */
+    max-width: calc(33.333% - 1.33rem);
+    min-width: calc(33.333% - 1.33rem);
+    padding: 1.5rem 2rem;
+    background: rgba(255, 215, 0, 0.1); /* jaune très clair transparent */
+    border-radius: 1rem;
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.25rem;
+    user-select: none;
+    border: 2px solid #FFD700;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: default;
+}
+
+    .tarif-box:hover {
+        background: rgba(255, 215, 0, 0.25);
+        transform: translateY(-5px);
+    }
+
+    /* Prix en jaune */
+    .tarif-box span {
+        display: block;
+        margin-top: 0.7rem;
+        color: #FFD700;
+        font-weight: 900;
+        font-size: 1.4rem;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .tarif-carousel .carousel-track {
+        animation-duration: 45s;
+    }
+
+    .tarif-box {
+        flex: 0 0 100%;
+        max-width: 80%;
+        min-width: 100%;
+        font-size: 0.5rem;
+        padding: 1rem 1rem;
+    }
+
+    .tarif-carousel .carousel {
+        max-width: 70% !important;
+        width: 90% !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        position: relative;
+        overflow: hidden !important;
+    }
+
+    .tarif-box {
+        font-size: 1.15rem;
+        padding: 1.2rem 1.5rem;
+        box-sizing: border-box;
+    }
+
+    .tarif-carousel .carousel-btn.left {
+        left: 0.5rem !important;
+        z-index: 20;
+    }
+
+    .tarif-carousel .carousel-btn.right {
+        right: 0.5rem !important;
+        z-index: 20;
+    }
+}
+
+/* Flèches du carousel */
+.tarif-carousel .carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #FFD700 !important;
+    border: 2px solid #FFD700 !important;
+    color: black;
+    width: 3rem;
+    height: 3rem;
+    padding: 0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 6px rgba(255, 215, 0, 0.5);
+}
+
+    .tarif-carousel .carousel-btn:hover {
+        color: #ffd700;
+        border-color: #ffec73;
+        box-shadow: 0 4px 12px rgba(255, 215, 0, 0.75);
+        transform: translateY(-50%) scale(1.15);
+        background-color: transparent !important;
+        color: #FFD700;
+    }
+
+    .tarif-carousel .carousel-btn.left {
+        left: -2rem;
+    }
+
+    .tarif-carousel .carousel-btn.right {
+        right: -2rem;
+    }
+
+@media (max-width: 768px) {
+    /* Réduire la taille des flèches */
+    .carousel-btn {
+        width: 30px;
+        height: 30px;
+    }
+
+        .carousel-btn svg {
+            width: 20px;
+            height: 20px;
+        }
+}

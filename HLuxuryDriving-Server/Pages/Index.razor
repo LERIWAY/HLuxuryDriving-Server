@@ -31,12 +31,50 @@
             <div>
                 <h1 class="masthead-heading text-uppercase">Voyagez avec élégance et sérénité</h1>
                 <p class="masthead-subheading">
-                    Découvrez H DRIVING LUXURY, votre partenaire de transport privé alliant confort, économie,
+                    Découvrez H LUXURY DRIVING, votre partenaire de transport privé alliant confort, économie,
                     sécurité et flexibilité. Profitez d'un service de chauffeur personnalisé pour tous vos déplacements sur Strasbourg et sa région.
                 </p>
                 <button class="btn-reserve-yellow mt-3 text-uppercase btn-xl" @onclick="@(() => ScrollToSection("contact"))">
                     Je réserve mon trajet
                 </button>
+
+                <section class="tarif-carousel position-relative py-4">
+                    <div class="container text-center">
+                        <!-- Flèche gauche -->
+                        <button class="carousel-btn left" onclick="handlePrevTarifClick()" aria-label="Précédent">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <polyline points="15 18 9 12 15 6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </button>
+
+                        <div class="carousel">
+                            <div class="carousel-track" id="tarifCarouselTrack">
+                                <div class="tarif-box">
+                                    Strasbourg Aéroport<br /><span>à partir de 39,99 €</span>
+                                </div>
+                                <div class="tarif-box">
+                                    Gare de Strasbourg<br /><span>à partir de 19,99 €</span>
+                                </div>
+                                <div class="tarif-box">
+                                    Aéroport de Baden-Baden<br /><span>à partir de 79,99 €</span>
+                                </div>
+                                <div class="tarif-box">
+                                    Aéroport de Bâle-Mulhouse<br /><span>à partir de 149,99 €</span>
+                                </div>
+                                <div class="tarif-box">
+                                    Aéroport de Francfort<br /><span>à partir de 249,99 €</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Flèche droite -->
+                        <button class="carousel-btn right" onclick="handleNextTarifClick()" aria-label="Suivant">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <polyline points="9 6 15 12 9 18" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </button>
+                    </div>
+                </section>
             </div>
         </div>
     </header>
@@ -57,7 +95,7 @@
                         <i class="fas fa-car-side fa-3x"></i>
                     </div>
                     <h4 class="my-3">Confort et Discrétion</h4>
-                    <p class="text-muted">H DRIVING LUXURY vous garantit une expérience de voyage où le confort est roi. Nos véhicules sont sélectionnés pour leur luxe et leur commodité.</p>
+                    <p class="text-muted">H LUXURY DRIVING vous garantit une expérience de voyage où le confort est roi. Nos véhicules sont sélectionnés pour leur luxe et leur commodité.</p>
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
                     <div class="icon-circle mb-4">
@@ -100,7 +138,9 @@
                             </a>
                             <div class="portfolio-caption">
                                 <div class="portfolio-caption-heading" style="padding: 10px; font-weight: bold; text-align:center;">@service.Title</div>
-                                <div class="portfolio-caption-subheading text-muted">@service.Description</div>
+                                <div class="portfolio-caption-subheading text-muted">
+                                    @(new MarkupString(service.Description))
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -294,19 +334,44 @@
         new ServiceItem
         {
             Title = "Transferts Standard, Gares & Aéroports",
-            Description = "Profitez d’un service de transfert aéroportuaire haut de gamme avec H DRIVING LUXURY. Nos chauffeurs professionnels vous assurent un trajet confortable et sans stress, que ce soit pour un départ ou une arrivée. Grâce à leur ponctualité et leur parfaite connaissance des itinéraires, vous arrivez toujours à l’heure. Nos véhicules de luxe sont équipés pour garantir votre confort et votre sécurité tout au long du trajet. Nous vous offrons également une flexibilité totale, y compris pour les modifications de dernière minute. Choisir notre service, c’est opter pour la tranquillité d’esprit et l’excellence du service.",
+            Description =
+            @"<ul>
+                <li><strong>Service de transfert haut de gamme</strong> depuis/vers aéroports et gares.</li>
+                <li><strong>Chauffeurs professionnels</strong>, ponctuels et discrets.</li>
+                <li><strong>Trajet confortable</strong> et sans stress, pour départ ou arrivée.</li>
+                <li><strong>Véhicules de luxe</strong>, spacieux et sécurisés.</li>
+                <li><strong>Connaissance parfaite des itinéraires</strong> pour une arrivée toujours à l’heure.</li>
+                <li><strong>Flexibilité totale</strong>, même pour les changements de dernière minute.</li>
+                <li>Idéal pour les voyageurs exigeants en quête de <strong>sérénité</strong> et d’<strong>excellence</strong>.</li>
+            </ul>",
             Image = "img/frankfurtAirport.jpg"
         },
         new ServiceItem
         {
             Title = "Service et Chauffeur à la Demande",
-            Description = "Avec H DRIVING LUXURY, bénéficiez d’un service de chauffeur privé à la demande, parfaitement adapté à vos horaires et à vos besoins. Idéal pour les rendez-vous d’affaires, les événements spéciaux ou vos déplacements en ville, ce service allie élégance, discrétion et professionnalisme. Nos chauffeurs expérimentés veillent à votre sécurité tout en vous offrant un service irréprochable. Installez-vous dans l’un de nos véhicules haut de gamme pour un trajet des plus agréables. Que ce soit pour quelques heures ou pour la journée entière, nous nous adaptons à votre emploi du temps avec souplesse et réactivité.",
+            Description =
+            @"<ul>
+                <li><strong>Chauffeur privé disponible à la demande</strong>, selon vos horaires.</li>
+                <li>Parfait pour les <strong>rendez-vous professionnels</strong>, événements ou déplacements en ville.</li>
+                <li>Service alliant <strong>élégance</strong>, <strong>discrétion</strong> et <strong>professionnalisme</strong>.</li>
+                <li><strong>Véhicules haut de gamme</strong> pour un confort optimal.</li>
+                <li><strong>Adaptabilité totale</strong>, pour quelques heures ou la journée entière.</li>
+                <li><strong>Chauffeurs expérimentés</strong>, attentifs à votre sécurité et à vos besoins.</li>
+            </ul>",
             Image = "img/serviceEtChauffeur.jpg"
         },
         new ServiceItem
         {
             Title = "Excursions et Visites Guidées",
-            Description = "Partez à la découverte des trésors locaux avec les excursions et visites guidées signées H DRIVING LUXURY. Touriste ou résident, laissez-vous conduire vers des lieux emblématiques dans un confort absolu. Nos chauffeurs, également guides expérimentés, élaborent des itinéraires sur mesure selon vos centres d’intérêt. Profitez de commentaires enrichissants et de la liberté de faire des pauses aux différents points d’intérêt. Nos véhicules spacieux et élégants rendent même les longs trajets agréables. Nous vous offrons une grande flexibilité pour personnaliser la durée et le parcours selon vos envies. Offrez-vous une expérience inoubliable, alliant découverte et raffinement.",
+            Description =
+            @"<ul>
+                <li>Découvrez les <strong>trésors locaux</strong> dans un confort absolu.</li>
+                <li><strong>Itinéraires sur mesure</strong>, selon vos envies et centres d’intérêt.</li>
+                <li><strong>Chauffeurs-guides passionnés</strong> pour des commentaires enrichissants.</li>
+                <li><strong>Liberté totale</strong> pour faire des pauses aux points d’intérêt.</li>
+                <li><strong>Véhicules spacieux et élégants</strong>, adaptés aux longues excursions.</li>
+                <li><strong>Expérience unique</strong>, alliant découverte culturelle et raffinement.</li>
+            </ul>",
             Image = "img/petiteFrance.jpg"
         }
     };
@@ -365,7 +430,7 @@
                 <p><strong>H LUXURY DRIVING</strong><br />
                 <a href='https://www.h-luxury-driving.com' target='_blank' style='color: #FFD700; text-decoration: none;'>www.h-luxury-driving.com</a></p>";
 
-            var mailToOwner = new MailMessage(smtpSettings.Username, smtpSettings.Username)
+            var mailToOwner = new MailMessage(smtpSettings.Username, "contact@h-luxury-driving.com")
             {
                 Subject = $@"Nouvelle demande de réservation de {reservation.Prenom} {reservation.Nom?.ToUpper()}",
                 IsBodyHtml = true,
